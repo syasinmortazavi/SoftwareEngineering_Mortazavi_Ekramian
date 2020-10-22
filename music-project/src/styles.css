@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: Vazir;
+    src: url('http://fonts.codearena.ir/rastikerdar/vazir/vazir.eot');
+    src: url('http://fonts.codearena.ir/rastikerdar/vazir/vazir.eot?#iefix') format('embedded-opentype'),
+         url('http://fonts.codearena.ir/rastikerdar/vazir/vazir.woff') format('woff'),
+         url('http://fonts.codearena.ir/rastikerdar/vazir/vazir.ttf') format('truetype');
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: Tanha;
+    src: url('http://fonts.codearena.ir/rastikerdar/tanha/tanha.eot');
+    src: url('http://fonts.codearena.ir/rastikerdar/tanha/tanha.eot?#iefix') format('embedded-opentype'),
+         url('http://fonts.codearena.ir/rastikerdar/tanha/tanha.woff') format('woff'),
+         url('http://fonts.codearena.ir/rastikerdar/tanha/tanha.ttf') format('truetype');
+    font-weight: normal;
+  }  
+
+  @font-face {
+    font-family: Yekan;
+    src: url('http://fonts.codearena.ir/b/yekan/yekan.eot');
+    src: url('http://fonts.codearena.ir/b/yekan/yekan.eot?#iefix') format('embedded-opentype'),
+         url('http://fonts.codearena.ir/b/yekan/yekan.woff') format('woff'),
+         url('http://fonts.codearena.ir/b/yekan/yekan.ttf') format('truetype');
+    font-weight: normal;
+  }
+ 
+
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+  }
+
+  h1,h2,h3,h4,h5
+  {
+      font-family: Vazir !important;
+  }
+body,:host,div
+{
+    font-size: 14px;
+    direction: rtl;
+    text-align: right;
+   
+    
+    font-family: Yekan !important;
+  
+
+}
+
