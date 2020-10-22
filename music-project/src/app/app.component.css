@@ -1,0 +1,30 @@
+@font-face {
+    font-family: Vazir;
+    src: url('http://fonts.codearena.ir/rastikerdar/vazir/vazir.eot');
+    src: url('http://fonts.codearena.ir/rastikerdar/vazir/vazir.eot?#iefix') format('embedded-opentype'),
+         url('http://fonts.codearena.ir/rastikerdar/vazir/vazir.woff') format('woff'),
+         url('http://fonts.codearena.ir/rastikerdar/vazir/vazir.ttf') format('truetype');
+    font-weight: normal;
+  }
+ 
+
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+  }
+
+  h1,h2,h3,h4,h5
+  {
+      font-family: Vazir !important;
+  }
+body,:host,div
+{
+    font-size: 14px;
+    direction: rtl;
+    text-align: right;
+   
+    
+    font-family: Vazir;
+  
+
+}
+
