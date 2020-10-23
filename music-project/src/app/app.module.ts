@@ -7,6 +7,8 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
 
+import { NavbarComponent } from './navbar/navbar.component';
+
 const routes=[
   {path:"signup",component:SignupComponent},
   {path:"login",component:LoginComponent}
@@ -16,7 +18,9 @@ const routes=[
   declarations: [
     AppComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    
+    NavbarComponent
   ],
   imports: [
     FormsModule,
