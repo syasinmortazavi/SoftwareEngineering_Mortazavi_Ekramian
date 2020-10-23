@@ -1,0 +1,5 @@
+<div class="row col-12 bg-light">
+    <a *ngIf="login==null" class=" nav-link" routerLink="signup">ثبت نام</a>
+    <a *ngIf="login==null" class=" nav-link" routerLink="login">ورود </a>
+    <a *ngIf="login" class="nav-link"> پروفایل {{login}}</a>
+</div>
