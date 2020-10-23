@@ -16,5 +16,9 @@ export class NavbarComponent implements OnInit {
         this.login=msg
       })
   }
+  logout()
+  {
+    this.navservice.messageForLogin.next(null);
+  }
 
 }
