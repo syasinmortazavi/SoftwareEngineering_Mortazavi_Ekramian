@@ -1,0 +1,48 @@
+
+<div *ngIf="message!=null" class="container">
+    <div [ngClass]="{'alert-success':message.successful==true,'alert-danger':message.successful==false}" class="alert text-center mt-2">
+        {{message.msg}}
+    </div>
+</div>
+
+<form class=" form container mt-4 "   #signupForm="ngForm">
+<div class="d-flex  main-form col-12 flex-column justify-content-around align-items-center">
+    <div class="signup-header col-8  text-center">ویرایش اطلاعات</div>
+    <input name="fullname" class="form-control col-8 " [(ngModel)]="user_.Name"
+    placeholder="لطفا نام خود را وارد کنید"
+    #fullname="ngModel"
+    required
+    minlength="5"
+    >
+    <span class=" col-8 text-right bg-danger border-top p-2 text-white" *ngIf="!fullname.valid && fullname.touched && !fullname.errors.minlength">لطفا این قسمت را پر کنید</span>
+    <span class=" col-8 text-right bg-danger border-top p-2 text-white" *ngIf="!fullname.valid && fullname.touched && fullname.errors.minlength">حد اقل باید پنج حرف وارد کنید</span>
+
+
+    <input name="Email" class="form-control col-8 mb-1" type="text" [(ngModel)]="user_.Email"
+    placeholder="(ایمیل خود را وارد کنید (اختیاری"
+    ngModel 
+    #email="ngModel" 
+    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
+    >
+    
+        
+    <span  class="bg-danger border-top p-1 text-white col-8" *ngIf="email.errors?.pattern && email.touched">ایمیل معتبر نیست</span>
+    
+
+    <input name="address" class="form-control col-8 mb-1" type="text" [(ngModel)]="user_.Address" placeholder="آدرس را وارد کنید"
+    required
+    ngModel
+
+    #address="ngModel">
+    <span  class="bg-danger border-top p-1 text-white col-8"
+    *ngIf="address.errors?.required && address.touched">آدرس را وارد کنید</span>
+    <button class="btn btn-success col-8"  [disabled]="!signupForm.valid " type="submit">ثبت نام</button>
+
+
+
+    
+</div>
+</form>
+
+
+
