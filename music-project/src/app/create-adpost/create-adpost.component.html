@@ -1,3 +1,4 @@
+<div class=" shadow-lg p-4 mt-2 rounded">
 <form class="form col-12 mt-2" #createAdPost="ngForm">
 <div class="d-flex flex-column">
 <h3 >اضافه کردن تصویر</h3>
@@ -18,3 +19,4 @@
 
   <button class="btn btn-success col-12" (click)="sendAdPost()" [disabled]="!createAdPost.valid || selectedFile==null">ارسال</button>
 </form>
+</div>
