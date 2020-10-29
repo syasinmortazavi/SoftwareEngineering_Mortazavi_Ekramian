@@ -13,6 +13,8 @@ import { UserNavbarComponent } from './user-navbar/user-navbar.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { CreateAdpostComponent } from './create-adpost/create-adpost.component';
 import { DetailComponent } from './detail/detail.component';
+import { FooterComponent } from './footer/footer.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 const routes=[
   {path:"signup",component:SignupComponent},
@@ -36,15 +38,17 @@ const routes=[
     EditProfileComponent,
     CreateAdpostComponent,
     DetailComponent,
-    UserNavbarComponent
+    UserNavbarComponent,
+    FooterComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
-  providers: [NavbarComponent],
+  providers: [NavbarComponent,HttpClient,HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

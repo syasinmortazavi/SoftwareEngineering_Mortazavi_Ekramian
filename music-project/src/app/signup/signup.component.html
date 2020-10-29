@@ -5,7 +5,7 @@
     
     <div class="d-flex  main-form col-12 flex-column justify-content-around align-items-center">
         
-        <input name="fullname" class="form-control col-8 " [(ngModel)]="user.Name"
+        <input name="fullname" class="form-control col-8 " [(ngModel)]="user.name"
         placeholder="لطفا نام خود را وارد کنید"
         #fullname="ngModel"
         required
@@ -30,7 +30,7 @@
          <span  class="bg-danger border-top p-1 text-white col-8"
          *ngIf="!phoneNumber.errors?.pattern && phoneNumber.errors?.minlength  && phoneNumber.touched">شماره تلفن همراه نامعتبر</span> -->
     
-        <input name="Email" class="form-control col-8 mb-1" type="text" [(ngModel)]="user.Email"
+        <input name="Email" class="form-control col-8 mb-1" type="text" [(ngModel)]="user.email"
         placeholder="ایمیل خود را وارد کنید "
         ngModel 
         #email="ngModel" 
@@ -40,7 +40,7 @@
             
             <span  class="bg-danger border-top p-1 text-white col-8" *ngIf="email.errors?.pattern && email.touched">ایمیل معتبر نیست</span>
         
-        <input name="Password" class="form-control col-8 mb-1" type="password" [(ngModel)]="user.Password"
+        <input name="Password" class="form-control col-8 mb-1" type="password" [(ngModel)]="user.password"
         placeholder="رمز عبور"
         ngModel
         #password="ngModel"
@@ -55,7 +55,7 @@
         <span  class="bg-danger border-top p-1 text-white col-8"
         *ngIf="checkpassword.errors?.required && checkpassword.touched">تکرار رمز عبور</span>
         <span  class="bg-danger border-top p-1 text-white col-8"
-        *ngIf="user.Password!=ConfirmPassword && !checkpassword.errors?.required  && checkpassword.touched">رمز عبور و تکرار رمز عبور باید مثل هم باشند</span>
+        *ngIf="user.password!=ConfirmPassword && !checkpassword.errors?.required  && checkpassword.touched">رمز عبور و تکرار رمز عبور باید مثل هم باشند</span>
         <!-- <input name="address" class="form-control col-8 mb-1" type="text" [(ngModel)]="user.Address" placeholder="آدرس را وارد کنید"
         required
         ngModel
@@ -67,7 +67,7 @@
             <option value="1" selected>ثبت نام به عنوان دانشجو</option>
             <option value="2">ثبت نام به عنوان استاد</option>
           </select>
-        <button (click)="register()" class="btn btn-success col-8 mt-3" [disabled]="registerSuccess==true||!signupForm.valid || user.Password!=ConfirmPassword" type="submit">ثبت نام</button>
+        <button (click)="register()" class="btn btn-success col-8 mt-lg-3 mt-1" [disabled]="registerSuccess==true||!signupForm.valid || user.password!=ConfirmPassword" type="submit">ثبت نام</button>
      
     
   

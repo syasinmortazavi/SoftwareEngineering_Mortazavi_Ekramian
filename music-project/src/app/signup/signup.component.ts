@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http'
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +11,7 @@ export class SignupComponent implements OnInit {
   message=null;
   ConfirmPassword;
   registerSuccess=false;
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
     this.user=new Object()
@@ -18,16 +19,20 @@ export class SignupComponent implements OnInit {
   }
   setRole(role)
   {
-    this.user.Role=role
+    this.user.user_type=role
     console.log("role: "+this.user.Role);
     
   }
 
   register()
   {
-    console.log("register");
+    
     console.log(this.user)
     console.log(JSON.stringify(this.user))
+    this.http.post("http://5.160.146.125:8000/api/user/create/",JSON.stringify(this.user)).subscribe
+    {
+      res=>console.log("result: "+res)
+    }
     
   }
 
