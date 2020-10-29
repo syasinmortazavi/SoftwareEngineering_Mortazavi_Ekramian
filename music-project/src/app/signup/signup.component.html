@@ -1,6 +1,10 @@
+<div class="d-flex justify-content-center align-items-center signup-form-container">
+<div class="signup-form rounded shadow-lg pt-0 pr-0 pl-0 pb-3">
+<h3 class="signup-header col-12 text-white bg-info  text-center p-3 rounded">ثبت نام</h3>
 <form class=" form container mt-4 " #signupForm="ngForm">
+    
     <div class="d-flex  main-form col-12 flex-column justify-content-around align-items-center">
-        <div class="signup-header col-8  text-center">ثبت نام</div>
+        
         <input name="fullname" class="form-control col-8 " [(ngModel)]="user.Name"
         placeholder="لطفا نام خود را وارد کنید"
         #fullname="ngModel"
@@ -9,7 +13,7 @@
         >
         <span class=" col-8 text-right bg-danger border-top p-2 text-white" *ngIf="!fullname.valid && fullname.touched && !fullname.errors.minlength">لطفا این قسمت را پر کنید</span>
         <span class=" col-8 text-right bg-danger border-top p-2 text-white" *ngIf="!fullname.valid && fullname.touched && fullname.errors.minlength">حد اقل باید پنج حرف وارد کنید</span>
-        <input name="phoneNumber" class="form-control col-8 mb-1"  type="text" [(ngModel)]="user.PhoneNumber"
+        <!-- <input name="phoneNumber" class="form-control col-8 mb-1"  type="text" [(ngModel)]="user.PhoneNumber"
         placeholder="شماره تلفن همراه خود را وارد کنید"
         ngModel 
         #phoneNumber="ngModel" 
@@ -24,10 +28,10 @@
          <span  class="bg-danger border-top p-1 text-white col-8"
          *ngIf="phoneNumber.errors?.pattern && phoneNumber.touched">شماره تلفن همراه نامعتبر است</span>
          <span  class="bg-danger border-top p-1 text-white col-8"
-         *ngIf="!phoneNumber.errors?.pattern && phoneNumber.errors?.minlength  && phoneNumber.touched">شماره تلفن همراه نامعتبر</span>
+         *ngIf="!phoneNumber.errors?.pattern && phoneNumber.errors?.minlength  && phoneNumber.touched">شماره تلفن همراه نامعتبر</span> -->
     
         <input name="Email" class="form-control col-8 mb-1" type="text" [(ngModel)]="user.Email"
-        placeholder="(ایمیل خود را وارد کنید (اختیاری"
+        placeholder="ایمیل خود را وارد کنید "
         ngModel 
         #email="ngModel" 
         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
@@ -52,15 +56,19 @@
         *ngIf="checkpassword.errors?.required && checkpassword.touched">تکرار رمز عبور</span>
         <span  class="bg-danger border-top p-1 text-white col-8"
         *ngIf="user.Password!=ConfirmPassword && !checkpassword.errors?.required  && checkpassword.touched">رمز عبور و تکرار رمز عبور باید مثل هم باشند</span>
-        <input name="address" class="form-control col-8 mb-1" type="text" [(ngModel)]="user.Address" placeholder="آدرس را وارد کنید"
+        <!-- <input name="address" class="form-control col-8 mb-1" type="text" [(ngModel)]="user.Address" placeholder="آدرس را وارد کنید"
         required
         ngModel
     
         #address="ngModel">
         <span  class="bg-danger border-top p-1 text-white col-8"
-        *ngIf="address.errors?.required && address.touched">آدرس را وارد کنید</span>
-        <button class="btn btn-success col-8" [disabled]="registerSuccess==true||!signupForm.valid || user.Password!=ConfirmPassword" type="submit">ثبت نام</button>
-    
+        *ngIf="address.errors?.required && address.touched">آدرس را وارد کنید</span>-->
+        <select  class="form-control col-8" (change)="setRole($event.target.value)">
+            <option value="1" selected>ثبت نام به عنوان دانشجو</option>
+            <option value="2">ثبت نام به عنوان استاد</option>
+          </select>
+        <button (click)="register()" class="btn btn-success col-8 mt-3" [disabled]="registerSuccess==true||!signupForm.valid || user.Password!=ConfirmPassword" type="submit">ثبت نام</button>
+     
     
   
         
@@ -68,4 +76,6 @@
        
     </div>
     </form>
+</div>
+</div>
 

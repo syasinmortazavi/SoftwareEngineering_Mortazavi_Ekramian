@@ -1,0 +1,33 @@
+.login-form
+{
+    padding: 10px;
+    box-shadow: 5px 5px 5px gray;
+    background-color: white;
+    width: 60%;
+
+}
+.login-form-container
+{
+    height: 60vh !important;
+}
+.login-header
+{
+    width: 100vw !important;
+}
+
+@media  screen and (max-width:800px)
+{
+    .login-form-container
+    {
+    height: 60% !important ;
+   
+    }
+    .login-form
+    {
+        width: 85%;
+    }
+    .login-form 
+    {
+        width:85% !important;
+    }
+}

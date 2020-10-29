@@ -1,0 +1,33 @@
+.signup-form
+{
+    padding: 10px;
+    box-shadow: 5px 5px 5px gray;
+    background-color: white;
+    width: 60%;
+
+}
+.signup-form-container
+{
+    height: 60vh !important;
+}
+.signup-header
+{
+    width: 100vw !important;
+}
+
+@media  screen and (max-width:800px)
+{
+    .signup-form-container
+    {
+    height: 60% !important ;
+   
+    }
+    .signup-form
+    {
+        width: 85%;
+    }
+    .signup-form 
+    {
+        width:85% !important;
+    }
+}

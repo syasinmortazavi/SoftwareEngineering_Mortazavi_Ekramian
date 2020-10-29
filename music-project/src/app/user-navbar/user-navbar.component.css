@@ -1,0 +1,20 @@
+.userNavbar
+{
+    height: 100vh !important;
+    
+    margin-right: 0px !important;
+
+}
+.userNavbar a
+{
+    
+    width: 100vw !important;
+}
+
+@media screen and (max-width:600px)
+{
+    .userNavbar
+    {
+    width: 100% !important;
+    }
+}

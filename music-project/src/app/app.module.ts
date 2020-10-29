@@ -8,10 +8,20 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
 
 import { NavbarComponent } from './navbar/navbar.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UserNavbarComponent } from './user-navbar/user-navbar.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { CreateAdpostComponent } from './create-adpost/create-adpost.component';
+import { DetailComponent } from './detail/detail.component';
 
 const routes=[
   {path:"signup",component:SignupComponent},
-  {path:"login",component:LoginComponent}
+  {path:"login",component:LoginComponent},
+  {path:"profile",component:ProfileComponent,/*canActivate:[AuthGuard],*/ children:[
+    {path:'',component:DetailComponent,pathMatch: 'full'},
+    {path:"editProfile",component:EditProfileComponent},
+    {path:"createAdPost",component:CreateAdpostComponent}
+  ]}
 ]
 
 @NgModule({
@@ -20,7 +30,13 @@ const routes=[
     SignupComponent,
     LoginComponent,
     
-    NavbarComponent
+    NavbarComponent,
+    
+    ProfileComponent,
+    EditProfileComponent,
+    CreateAdpostComponent,
+    DetailComponent,
+    UserNavbarComponent
   ],
   imports: [
     FormsModule,

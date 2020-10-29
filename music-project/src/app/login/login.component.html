@@ -1,20 +1,20 @@
+<div class="d-flex justify-content-center align-items-center login-form-container">
+    <div class="login-form rounded shadow-lg pt-0 pr-0 pl-0 pb-3">
+    <h3 class="login-header col-12 text-white bg-info  text-center p-3 rounded">ورود</h3>
 <form class=" form container mt-4 " #loginForm="ngForm">
     <div class="d-flex  main-form col-12 flex-column justify-content-around align-items-center">
-        <div class="signup-header col-8  text-center">ورود </div>
+       
         
         
-        <input name="phoneNumber" class="form-control col-8 mb-1"  type="text" [(ngModel)]="user.PhoneNumber"
-        placeholder="شماره تلفن همراه خود را وارد کنید"
+        <input name="Email" class="form-control col-8 mb-1" type="text" [(ngModel)]="user.Email"
+        placeholder="ایمیل خود را وارد کنید "
         ngModel 
-        #phoneNumber="ngModel" 
-        pattern="^[0-9]+$" 
-        minlength=11
-        maxlength=12 
-        required
-        
+        #email="ngModel" 
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
         >
-        <span  class="bg-danger border-top p-1 text-white col-8"
-         *ngIf="phoneNumber.errors?.required && phoneNumber.touched">شماره تلفن همراه خود را وارد کنید</span>
+        
+            
+        <span  class="bg-danger border-top p-1 text-white col-8" *ngIf="email.errors?.pattern && email.touched">ایمیل معتبر نیست</span>
  
         
         
@@ -40,3 +40,5 @@
 
    
     </form>
+    </div>
+    </div>

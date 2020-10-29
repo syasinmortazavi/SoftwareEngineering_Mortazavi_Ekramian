@@ -14,6 +14,21 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.user=new Object()
+    
+  }
+  setRole(role)
+  {
+    this.user.Role=role
+    console.log("role: "+this.user.Role);
+    
+  }
+
+  register()
+  {
+    console.log("register");
+    console.log(this.user)
+    console.log(JSON.stringify(this.user))
+    
   }
 
 }

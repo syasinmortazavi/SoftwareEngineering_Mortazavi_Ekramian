@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NavbarService } from '../navbar.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { NavbarService } from '../navbar.service';
 })
 export class NavbarComponent implements OnInit {
   login=null;
-  constructor(private navservice:NavbarService) { }
+  constructor(private navservice:NavbarService,private route:Router) { }
 
   ngOnInit(): void {
       this.navservice.message$.subscribe(msg=>
@@ -19,6 +20,8 @@ export class NavbarComponent implements OnInit {
   logout()
   {
     this.navservice.messageForLogin.next(null);
+    this.route.navigateByUrl('/login')
   }
+  
 
 }
