@@ -1,5 +1,5 @@
 <div class="userNavbar  text-white flex-column bg-info align-items-start justify-content-start mr-0">
     <a class="nav-link col-12 text-white " (click)="ActiveLink='1'" [ngClass]="{'bg-warning':ActiveLink=='1'}"  routerLink="/profile">نمایش اطلاعات</a>
     <a class="nav-link col-12 text-white"  (click)="ActiveLink='2'" [ngClass]="{'bg-warning':ActiveLink=='2'}" routerLink="editProfile">ویرایش اطلاعات</a>
-    <a class="nav-link col-12 text-white"  (click)="ActiveLink='3'" [ngClass]="{'bg-warning':ActiveLink=='3'}" routerLink="createAdPost">ایجاد پست تبلیغاتی</a>
+    <a class="nav-link col-12 text-white" *ngIf="user_.user_type==2"  (click)="ActiveLink='3'" [ngClass]="{'bg-warning':ActiveLink=='3'}" routerLink="createAdPost">ایجاد پست تبلیغاتی</a>
 </div>

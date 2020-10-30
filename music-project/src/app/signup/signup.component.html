@@ -1,18 +1,30 @@
+<div *ngIf="loader==true" class=" position-fixed loader">
+    <img src="https://flevix.com/wp-content/uploads/2019/07/Comp-2.gif" alt="">
+</div>
 <div class="d-flex justify-content-center align-items-center signup-form-container">
 <div class="signup-form rounded shadow-lg pt-0 pr-0 pl-0 pb-3">
+
 <h3 class="signup-header col-12 text-white bg-info  text-center p-3 rounded">ثبت نام</h3>
+<div *ngIf="message!=null && message.status==true" class=" alert alert-success col-12 d-flex flex-row align-items-center justify-content-between pr-1 pl-1">
+   <div>{{message.msg}}</div> 
+    <div class="btn btn-sm btn-outline-dark" (click)="message=null">بستن</div>
+</div>
+<div *ngIf="message!=null && message.status==false" class=" alert alert-danger col-12 d-flex flex-row align-items-center justify-content-between pr-1 pl-1">
+    <div>{{message.msg}}</div> 
+    <div class="btn btn-sm btn-outline-dark" (click)="message=null">بستن</div>
+</div>
 <form class=" form container mt-4 " #signupForm="ngForm">
     
     <div class="d-flex  main-form col-12 flex-column justify-content-around align-items-center">
         
-        <input name="fullname" class="form-control col-8 " [(ngModel)]="user.Name"
+        <input name="fullname" class="form-control col-8 " [(ngModel)]="user.name"
         placeholder="لطفا نام خود را وارد کنید"
         #fullname="ngModel"
         required
-        minlength="5"
+        
         >
         <span class=" col-8 text-right bg-danger border-top p-2 text-white" *ngIf="!fullname.valid && fullname.touched && !fullname.errors.minlength">لطفا این قسمت را پر کنید</span>
-        <span class=" col-8 text-right bg-danger border-top p-2 text-white" *ngIf="!fullname.valid && fullname.touched && fullname.errors.minlength">حد اقل باید پنج حرف وارد کنید</span>
+       
         <!-- <input name="phoneNumber" class="form-control col-8 mb-1"  type="text" [(ngModel)]="user.PhoneNumber"
         placeholder="شماره تلفن همراه خود را وارد کنید"
         ngModel 
@@ -30,23 +42,28 @@
          <span  class="bg-danger border-top p-1 text-white col-8"
          *ngIf="!phoneNumber.errors?.pattern && phoneNumber.errors?.minlength  && phoneNumber.touched">شماره تلفن همراه نامعتبر</span> -->
     
-        <input name="Email" class="form-control col-8 mb-1" type="text" [(ngModel)]="user.Email"
+        <input name="Email" class="form-control col-8 mb-1" type="text" [(ngModel)]="user.email"
         placeholder="ایمیل خود را وارد کنید "
         ngModel 
         #email="ngModel" 
         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
+        required
         >
         
-            
+        <span  class="bg-danger border-top p-1 text-white col-8"
+        *ngIf="email.errors?.required && email.touched">ایمیل خود را وارد کنید</span>
             <span  class="bg-danger border-top p-1 text-white col-8" *ngIf="email.errors?.pattern && email.touched">ایمیل معتبر نیست</span>
         
-        <input name="Password" class="form-control col-8 mb-1" type="password" [(ngModel)]="user.Password"
+        <input name="Password" class="form-control col-8 mb-1" type="password" [(ngModel)]="user.password"
         placeholder="رمز عبور"
         ngModel
         #password="ngModel"
-        required>
+        required
+        minlength="8">
         <span  class="bg-danger border-top p-1 text-white col-8"
         *ngIf="password.errors?.required && password.touched" >رمز عبور</span>
+        <span class=" col-8 text-right bg-danger border-top p-2 text-white"
+         *ngIf="!password.valid && password.touched && password.errors.minlength">حد اقل باید هشت حرف وارد کنید</span>
         <input name="correct-password" class="form-control col-8 mb-1" type="password" [(ngModel)]="ConfirmPassword"
         placeholder="تکرار رمز عبور"
         ngModel
@@ -55,7 +72,7 @@
         <span  class="bg-danger border-top p-1 text-white col-8"
         *ngIf="checkpassword.errors?.required && checkpassword.touched">تکرار رمز عبور</span>
         <span  class="bg-danger border-top p-1 text-white col-8"
-        *ngIf="user.Password!=ConfirmPassword && !checkpassword.errors?.required  && checkpassword.touched">رمز عبور و تکرار رمز عبور باید مثل هم باشند</span>
+        *ngIf="user.password!=ConfirmPassword && !checkpassword.errors?.required  && checkpassword.touched">رمز عبور و تکرار رمز عبور باید مثل هم باشند</span>
         <!-- <input name="address" class="form-control col-8 mb-1" type="text" [(ngModel)]="user.Address" placeholder="آدرس را وارد کنید"
         required
         ngModel
@@ -67,7 +84,7 @@
             <option value="1" selected>ثبت نام به عنوان دانشجو</option>
             <option value="2">ثبت نام به عنوان استاد</option>
           </select>
-        <button (click)="register()" class="btn btn-success col-8 mt-3" [disabled]="registerSuccess==true||!signupForm.valid || user.Password!=ConfirmPassword" type="submit">ثبت نام</button>
+        <button (click)="register()" class="btn btn-success col-8 mt-lg-3 mt-1" [disabled]="registerSuccess==true||!signupForm.valid || user.password!=ConfirmPassword" type="submit">ثبت نام</button>
      
     
   

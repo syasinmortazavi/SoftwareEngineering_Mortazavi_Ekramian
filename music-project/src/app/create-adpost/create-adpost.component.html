@@ -1,11 +1,24 @@
+<div *ngIf="loader==true" class=" position-absolute loader">
+  <img src="https://flevix.com/wp-content/uploads/2019/07/Comp-2.gif" alt="">
+</div>
 <div class=" shadow-lg p-4 mt-2 rounded">
-<form class="form col-12 mt-2" #createAdPost="ngForm">
+<h3 class=" border-bottom border-dark text-center p-2">ایجاد پست تبلیغاتی</h3>
+<form class="form col-12 mt-3" #createAdPost="ngForm">
 <div class="d-flex flex-column">
 <h3 >اضافه کردن تصویر</h3>
+<div *ngIf="message!=null && message.status==true" class=" alert alert-success col-12 d-flex flex-row align-items-center justify-content-between pr-1 pl-1">
+  <div>{{message.msg}}</div> 
+   <div class="btn btn-sm btn-outline-dark" (click)="message=null">بستن</div>
+</div>
+<div *ngIf="message!=null && message.status==false" class=" alert alert-danger col-12 d-flex flex-row align-items-center justify-content-between pr-1 pl-1">
+   <div>{{message.msg}}</div> 
+   <div class="btn btn-sm btn-outline-dark" (click)="message=null">بستن</div>
+</div>
 <input (change)="fileChangeEvent($event)" name="image"  type="file"  />
 </div>
 <div class="form-group p-0 col-12 d-flex flex-column mt-4 ">
     <h3>اضافه کردن توضیح</h3>
+
     <textarea class="form-control" id="caption" rows="3"
     name="caption"
     [(ngModel)]="adPost.caption"

@@ -14,12 +14,19 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
       this.navservice.message$.subscribe(msg=>
       {
+        console.log("msghoooooooooy: "+msg);
+        
         this.login=msg
       })
+      if(this.login == null && localStorage.getItem("token")!=null)
+      {
+        this.login="login"
+      }
   }
   logout()
   {
     this.navservice.messageForLogin.next(null);
+    localStorage.removeItem("token")
     this.route.navigateByUrl('/login')
   }
   

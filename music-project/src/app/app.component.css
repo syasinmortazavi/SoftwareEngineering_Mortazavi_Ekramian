@@ -1,0 +1,15 @@
+.footer
+{
+    position: fixed;
+    bottom: 0;
+    width: 100% !important;
+    background-color:lightblue
+}
+
+@media screen and (max-width:600px)
+{
+    .footer
+    {
+        height: 8%;
+    }
+}

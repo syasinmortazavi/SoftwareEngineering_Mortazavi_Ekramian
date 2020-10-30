@@ -1,0 +1,16 @@
+.loader
+{
+    z-index: 1001;
+    top: 0;
+    right: 0;
+    
+    width: 100% !important;
+    height: 100% !important;
+    opacity: .8;
+    
+}
+.loader img
+{
+    height: 100% !important;
+    width: 100% !important;
+}

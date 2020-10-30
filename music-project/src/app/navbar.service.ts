@@ -7,10 +7,17 @@ import { Subject } from 'rxjs';
 export class NavbarService {
   messageForLogin = new Subject<string>()
   message$=this.messageForLogin.asObservable();
-  constructor() { }
-  setMessageForLogin(userName)
+  constructor() { 
+    if(localStorage.getItem("token")!=null)
+    {
+      
+      
+      this.messageForLogin.next("login")
+    }
+  }
+  setMessageForLogin(login)
 {
-  this.messageForLogin.next(userName)
+  this.messageForLogin.next(login)
 }
 }
 
