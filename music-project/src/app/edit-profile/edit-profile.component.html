@@ -1,22 +1,28 @@
 
-<div *ngIf="message!=null" class="container">
-    <div [ngClass]="{'alert-success':message.successful==true,'alert-danger':message.successful==false}" class="alert text-center mt-2">
-        {{message.msg}}
-    </div>
+<div *ngIf="loader==true" class=" position-absolute loader">
+    <img src="https://flevix.com/wp-content/uploads/2019/07/Comp-2.gif" alt="">
 </div>
 <div class="shadow-lg rounded d-flex flex-column justify-content-center align-items-center p-4 mt-4">
 <h3 class="signup-header col-8  text-center border-bottom border-dark">ویرایش اطلاعات</h3>
+<div *ngIf="message!=null && message.status==true" class=" alert alert-success col-12 d-flex flex-row align-items-center justify-content-between pr-1 pl-1">
+    <div>{{message.msg}}</div> 
+     <div class="btn btn-sm btn-outline-dark" (click)="message=null">بستن</div>
+ </div>
+ <div *ngIf="message!=null && message.status==false" class=" alert alert-danger col-12 d-flex flex-row align-items-center justify-content-between pr-1 pl-1">
+     <div>{{message.msg}}</div> 
+     <div class="btn btn-sm btn-outline-dark" (click)="message=null">بستن</div>
+ </div>
 <form class=" form container mt-4 "   #signupForm="ngForm">
 <div class="d-flex  main-form col-12 flex-column justify-content-around align-items-center">
     
-    <input name="fullname" class="form-control col-8 " [(ngModel)]="user_.Name"
+    <input name="fullname" class="form-control col-8 " [(ngModel)]="user_.name"
     placeholder="لطفا نام خود را وارد کنید"
     #fullname="ngModel"
     required
-    minlength="5"
+    
     >
     <span class=" col-8 text-right bg-danger border-top p-2 text-white" *ngIf="!fullname.valid && fullname.touched && !fullname.errors.minlength">لطفا این قسمت را پر کنید</span>
-    <span class=" col-8 text-right bg-danger border-top p-2 text-white" *ngIf="!fullname.valid && fullname.touched && fullname.errors.minlength">حد اقل باید پنج حرف وارد کنید</span>
+    
 
 
     <input name="Email" class="form-control col-8 mb-1 mt-1" type="text" [(ngModel)]="user_.email"
@@ -29,14 +35,14 @@
         
     <span  class="bg-danger border-top p-1 text-white col-8" *ngIf="email.errors?.pattern && email.touched">ایمیل معتبر نیست</span>
     
-
-    <input name="password" class="form-control col-8 mb-1" type="text" [(ngModel)]="user_.password" placeholder="رمز عبور را وارد کنید"
+<!-- 
+    <input name="password" class="form-control col-8 mb-1" type="password" [(ngModel)]="user_.password" placeholder="رمز عبور را وارد کنید"
     required
     ngModel
 
     #password="ngModel">
     <span  class="bg-danger border-top p-1 text-white col-8"
-    *ngIf="password.errors?.required && password.touched">رکز عبور را وارد کنید</span>
+    *ngIf="password.errors?.required && password.touched">رکز عبور را وارد کنید</span> -->
     <button class="btn btn-success col-8" (click)="editProfile()" [disabled]="!signupForm.valid " type="submit">ویرایش اطلاعات</button>
 
 

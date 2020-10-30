@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,20 +8,67 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditProfileComponent implements OnInit {
   user_=null;
-  message=null
+  httpOptions
+  message;
+  loader=false;
   ConfirmPassword
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
     this.user_=new Object()
+    this.message=new Object()
+    var headers_object = new HttpHeaders({
+      'Content-Type': 'application/json',
+       'Authorization': "Token "+localStorage.getItem("token")
+    });
+     this.httpOptions = {
+      headers: headers_object
+    };
+    this.loader=true;
+    this.http.get("http://5.160.146.125/api/user/me/",this.httpOptions).subscribe(
+      res=>
+      {
+        this.user_=res;
+        this.user_=this.user_
+        console.log("editProfile: "+JSON.stringify(res));
+        this.loader=false
+        
+        
+      }
+    )
   }
 
   editProfile()
   {
-    this.http.post("http://5.160.146.125:8000/api/user/me/",JSON.stringify(this.user_)).subscribe
+    this.loader=true
+    this.http.put("http://5.160.146.125/api/user/me/",this.user_,this.httpOptions).subscribe
     (res=>
       {
+        this.loader=false
+        this.message["msg"]="با موفقیت ویرایش شد"
+        this.message["status"]=true
         console.log("result of editing: "+ res)
+      },
+      err=>
+      {
+        this.loader=false
+        if(err["error"]["email"]!=null)
+        {
+          
+          this.message["status"]=false
+            this.message["msg"]="ایمیل تکراری است"
+          
+          if(err["error"]["email"][0]=="user with this email already exists.")
+          {
+            this.message["status"]=false
+            this.message["msg"]="ایمیل تکراری است"
+          }
+        }
+        else
+        {
+          this.message["status"]=false
+            this.message["msg"]="خطا در انجام عملیات"
+        }
       })
   }
 

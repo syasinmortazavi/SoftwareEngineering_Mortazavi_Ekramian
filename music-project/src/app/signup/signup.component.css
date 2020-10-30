@@ -15,6 +15,22 @@
     width: 100vw !important;
 }
 
+.loader
+{
+    z-index: 1001;
+    top: 0;
+    
+    width: 100vw !important;
+    height: 100vh !important;
+    opacity: .8;
+    
+}
+.loader img
+{
+    height: 100% !important;
+    width: 100% !important;
+}
+
 @media  screen and (max-width:800px)
 {
     .signup-form-container
