@@ -1,0 +1,17 @@
+<div *ngIf="loader==true" class=" position-absolute loader">
+    <img src="https://flevix.com/wp-content/uploads/2019/07/Comp-2.gif" alt="">
+</div>
+<div class=" post-container h-100 overflow-auto ">
+<div class="d-flex flex-column flex-lg-row flex-wrap align-items-start justify-content-around mt-3">
+<div class="card mb-3" *ngFor="let item of post">
+    <div class="image-container">
+    <img class="card-img-top" src={{item.image}} alt="image">
+</div>
+    <div class="card-body">
+      <!-- <h5 class="card-title"></h5> -->
+      <p class="card-text">{{item.caption}}</p>
+      
+    </div>
+  </div>
+</div>
+</div>

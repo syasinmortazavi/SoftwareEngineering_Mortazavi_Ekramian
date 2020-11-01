@@ -8,8 +8,9 @@ span
     z-index: 1001;
     top: 0;
     
-    width: 100% !important;
-    height: 100% !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    margin-right: -2% !important;
     opacity: .8;
     
 }

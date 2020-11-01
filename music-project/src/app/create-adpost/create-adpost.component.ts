@@ -16,6 +16,7 @@ export class CreateAdpostComponent implements OnInit {
   ngOnInit(): void {
     this.adPost=new Object()
     this.message = new Object()
+    
   }
 
   sendAdPost()
@@ -32,7 +33,7 @@ export class CreateAdpostComponent implements OnInit {
         const httpOptions = {
           headers: headers_object
         };
-
+        this.loader=true
         this.http.post("http://5.160.146.125/api/advertisement/advertisements/",fd,httpOptions).subscribe(res=>
         {
           this.loader=false

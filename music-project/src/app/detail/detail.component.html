@@ -1,4 +1,4 @@
-<div *ngIf="loader==true" class=" position-absolute loader">
+<div *ngIf="profile.user_==null || profile.user_==undefined" class=" position-absolute loader">
   <img src="https://flevix.com/wp-content/uploads/2019/07/Comp-2.gif" alt="">
 </div>
 <div class="container text-center p-4 shadow-lg rounded mt-2">
@@ -7,11 +7,11 @@
 
     <div class="d-flex flex-column col-12">
         <h6 class="pt-2 ml-2">نام:</h6>
-        <input  [disabled]="true" type="text" class="form-control col-6" [(ngModel)]="user.name">
+        <input  [disabled]="true" type="text" class="form-control col-6" [(ngModel)]="profile.user_.name">
         <h6 class="pt-2 ml-2">ایمیل:</h6>
-        <input  [disabled]="true" type="text" class="form-control col-6"  [(ngModel)]="user.email">
-        <h6 class="pt-2 ml-2">شماره تماس:</h6>
-        <input  [disabled]="true" type="text" class="form-control col-6"  placeholder="ثبت نشده">
+        <input  [disabled]="true" type="text" class="form-control col-6"  [(ngModel)]="profile.user_.email">
+        <h6 class="pt-2 ml-2">بیوگرافی:</h6>
+        <textarea rows="3" [disabled]="true" type="text" class="form-control col-6"  [(ngModel)]="profile.user_.biography"  ></textarea>
         
       </div>
     

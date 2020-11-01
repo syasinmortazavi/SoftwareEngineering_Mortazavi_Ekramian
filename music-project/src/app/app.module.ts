@@ -15,6 +15,7 @@ import { CreateAdpostComponent } from './create-adpost/create-adpost.component';
 import { DetailComponent } from './detail/detail.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CreatedPostComponent } from './created-post/created-post.component';
 
 const routes=[
   {path:"signup",component:SignupComponent},
@@ -22,7 +23,8 @@ const routes=[
   {path:"profile",component:ProfileComponent,/*canActivate:[AuthGuard],*/ children:[
     {path:'',component:DetailComponent,pathMatch: 'full'},
     {path:"editProfile",component:EditProfileComponent},
-    {path:"createAdPost",component:CreateAdpostComponent}
+    {path:"createAdPost",component:CreateAdpostComponent},
+    {path:"createdPost",component:CreatedPostComponent}
   ]}
 ]
 
@@ -39,7 +41,8 @@ const routes=[
     CreateAdpostComponent,
     DetailComponent,
     UserNavbarComponent,
-    FooterComponent
+    FooterComponent,
+    CreatedPostComponent
   ],
   imports: [
     FormsModule,

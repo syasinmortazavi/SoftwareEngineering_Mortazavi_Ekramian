@@ -12,3 +12,11 @@ div
 {
     margin-right: 80%;
 }
+
+@media screen and (max-width:600px)
+{
+    div
+    {
+    margin-right: 60% !important;
+    }
+}
