@@ -13,9 +13,9 @@
      <div class="btn btn-sm btn-outline-dark" (click)="message=null">بستن</div>
  </div>
 <form class=" form container mt-4 "   #signupForm="ngForm">
-<div class="d-flex  main-form col-12 flex-column justify-content-around align-items-center">
-    
-    <input name="fullname" class="form-control col-8 " [(ngModel)]="user_.name"
+<div class="d-flex  main-form col-12 flex-column justify-content-around align-items-center ">
+    <h6 class="pt-2  align-self-start">نام:</h6>
+    <input name="fullname" class="form-control col-12 " [(ngModel)]="user_.name"
     placeholder="لطفا نام خود را وارد کنید"
     #fullname="ngModel"
     required
@@ -24,16 +24,21 @@
     <span class=" col-8 text-right bg-danger border-top p-2 text-white" *ngIf="!fullname.valid && fullname.touched && !fullname.errors.minlength">لطفا این قسمت را پر کنید</span>
     
 
-
-    <input name="Email" class="form-control col-8 mb-1 mt-1" type="text" [(ngModel)]="user_.email"
-    placeholder="ایمیل خود را وارد کنید "
-    ngModel 
-    #email="ngModel" 
-    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
-    >
+    <h6 class="pt-2 mt-1 align-self-start">توضیحات:</h6>
+    <textarea class="form-control" id="caption" rows="3"
+    name="caption"
+    [(ngModel)]="user_.biography"
+    
+    #caption="ngModel"
+    maxlength="255">
+  </textarea>
+  
+  <span class="border-top p-2 text-white col-12 bg-danger " *ngIf="caption.touched && !caption.valid && caption.errors.maxlength">متن طولانی است</span>
+  </div>
+    
     
         
-    <span  class="bg-danger border-top p-1 text-white col-8" *ngIf="email.errors?.pattern && email.touched">ایمیل معتبر نیست</span>
+   
     
 <!-- 
     <input name="password" class="form-control col-8 mb-1" type="password" [(ngModel)]="user_.password" placeholder="رمز عبور را وارد کنید"
@@ -43,12 +48,12 @@
     #password="ngModel">
     <span  class="bg-danger border-top p-1 text-white col-8"
     *ngIf="password.errors?.required && password.touched">رکز عبور را وارد کنید</span> -->
-    <button class="btn btn-success col-8" (click)="editProfile()" [disabled]="!signupForm.valid " type="submit">ویرایش اطلاعات</button>
+    <button class="btn btn-success col-12 mt-3" (click)="editProfile()" [disabled]="!signupForm.valid " type="submit">ویرایش اطلاعات</button>
 
 
 
     
-</div>
+
 </form>
 </div>
 
