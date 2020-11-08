@@ -18,6 +18,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CreatedPostComponent } from './created-post/created-post.component';
 import { UploadVideoComponent } from './upload-video/upload-video.component';
 import { CreatedVideoComponent } from './created-video/created-video.component';
+import { ClassVideosComponent } from './class-videos/class-videos.component';
 
 const routes=[
   {path:"signup",component:SignupComponent},
@@ -28,7 +29,8 @@ const routes=[
     {path:"createAdPost",component:CreateAdpostComponent},
     {path:"createdPost",component:CreatedPostComponent},
     {path:"uploadVideo",component:UploadVideoComponent},
-    {path:"createdVideo",component:CreatedVideoComponent}
+    {path:"createdVideo",component:CreatedVideoComponent},
+    {path:"classVideos",component:ClassVideosComponent}
   ]}
 ]
 
@@ -48,7 +50,8 @@ const routes=[
     FooterComponent,
     CreatedPostComponent,
     UploadVideoComponent,
-    CreatedVideoComponent
+    CreatedVideoComponent,
+    ClassVideosComponent
   ],
   imports: [
     FormsModule,
