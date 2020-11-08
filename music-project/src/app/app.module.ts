@@ -17,6 +17,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CreatedPostComponent } from './created-post/created-post.component';
 import { UploadVideoComponent } from './upload-video/upload-video.component';
+import { CreatedVideoComponent } from './created-video/created-video.component';
 
 const routes=[
   {path:"signup",component:SignupComponent},
@@ -26,7 +27,8 @@ const routes=[
     {path:"editProfile",component:EditProfileComponent},
     {path:"createAdPost",component:CreateAdpostComponent},
     {path:"createdPost",component:CreatedPostComponent},
-    {path:"uploadVideo",component:UploadVideoComponent}
+    {path:"uploadVideo",component:UploadVideoComponent},
+    {path:"createdVideo",component:CreatedVideoComponent}
   ]}
 ]
 
@@ -45,7 +47,8 @@ const routes=[
     UserNavbarComponent,
     FooterComponent,
     CreatedPostComponent,
-    UploadVideoComponent
+    UploadVideoComponent,
+    CreatedVideoComponent
   ],
   imports: [
     FormsModule,
