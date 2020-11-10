@@ -1,29 +1,19 @@
 <table class="table table-bordered m-2">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">جزییات کلاس</th>
-        <th scope="col">دریافت فایل</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>جلسه اول</td>
-        <td>لینک دانلود</td>
-       
-      </tr>
-      <tr>
-        <th>2</th>
-        <td>جلسه دوم</td>
-        <td>لینک دانلود</td>
-       
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>جلسه سوم</td>
-        <td>لینک دانلود</td>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">جزییات کلاس</th>
+      <th scope="col">دریافت فایل</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of classVideos;let i=index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{item.name}}</td>
+      <td>لینک دانلود</td>
+     
+    </tr>
+
+  </tbody>
+</table>
