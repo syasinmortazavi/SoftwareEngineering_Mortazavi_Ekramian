@@ -7,4 +7,8 @@
      [ngClass]="{'bg-warning':ActiveLink=='5'}" routerLink="uploadVideo">آپلود ویدئو</a>
      <a class="nav-link col-12 text-white" *ngIf="user_.user_type==2"  (click)="ActiveLink='6'"
      [ngClass]="{'bg-warning':ActiveLink=='6'}" routerLink="createdVideo">ویدئوهای آپلود شده</a>
+     allVideos
+     <a class="nav-link col-12 text-white"   (click)="ActiveLink='7'"
+     [ngClass]="{'bg-warning':ActiveLink=='7'}" routerLink="allVideos">ویدئوهای آپلود شده</a>
+
 </div>
