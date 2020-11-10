@@ -12,3 +12,33 @@ i
     cursor: pointer;
     color: red;
 }
+.container
+{
+    width: 80% !important;
+    padding:10px !important;
+}
+tr:hover
+{
+    cursor: pointer;
+    background-color: silver;
+}
+.comment
+{
+    margin-right: 5% !important;
+}
+.classContainer
+{
+    overflow: scroll;
+    height: 100vh;
+    padding-bottom: 100px;
+    width: 73vw;
+}
+
+@media screen and (max-width:600px)
+{
+    .classContainer
+    {
+        overflow: visible;
+        width: 100% !important;
+    }
+}

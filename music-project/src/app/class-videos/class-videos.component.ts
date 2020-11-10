@@ -8,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class ClassVideosComponent implements OnInit {
   classVideos=[{name:"جلسه اول",link:"#"},{name:"جلسه دوم",link:"#"},{name:"جلسه سوم",link:"#"}]
   comment="";
+  selectedVideo;
   constructor() { }
 
   ngOnInit(): void {
+    this.selectedVideo=this.classVideos[0]["name"];
+  }
+
+  changeVideo(num)
+  {
+    this.selectedVideo=this.classVideos[num]["name"]
   }
 
 }
