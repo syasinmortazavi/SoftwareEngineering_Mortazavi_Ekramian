@@ -30,15 +30,24 @@ tr:hover
 {
     overflow: scroll;
     height: 100vh;
-    padding-bottom: 100px;
+    padding-bottom: 10% !important;
     width: 73vw;
+}
+.commentsContainer
+{
+    margin-top: 10% !important;
+}
+.videoContainer
+{
+    margin-top: 3% !important;
 }
 
 @media screen and (max-width:600px)
 {
     .classContainer
     {
-        overflow: visible;
+        overflow: visible !important;
         width: 100% !important;
+        height: auto !important;
     }
 }

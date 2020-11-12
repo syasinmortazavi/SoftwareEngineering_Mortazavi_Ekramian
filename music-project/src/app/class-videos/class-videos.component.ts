@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ClassVideosComponent implements OnInit {
   classVideos=[{name:"جلسه اول",link:"#"},{name:"جلسه دوم",link:"#"},{name:"جلسه سوم",link:"#"}]
   comment="";
+  guitar= '../../assets/image/download.jpg'
   selectedVideo;
   constructor() { }
 
