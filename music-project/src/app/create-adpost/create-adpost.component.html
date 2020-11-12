@@ -31,5 +31,8 @@
   </div>
 
   <button class="btn btn-success col-12" (click)="sendAdPost()" [disabled]="!createAdPost.valid || selectedFile==null">ارسال</button>
+  <div class="progress" *ngIf="progress>0 && progress<100">
+    <div class="progress-bar" role="progressbar" style="width: {{progress}}%;" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100">{{progress}}%</div>
+  </div>
 </form>
 </div>
