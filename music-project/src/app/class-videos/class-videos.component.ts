@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-class-videos',
@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClassVideosComponent implements OnInit {
   videotest="../../assets/image/test.mp4"
-  classVideos=[{name:"جلسه اول",link:this.videotest},{name:"جلسه دوم",link:"#"},{name:"جلسه سوم",link:"#"}]
+  videotest2="../../assets/image/test2.mp4"
+
+  classVideos=[{name:"جلسه اول",link:this.videotest},{name:"جلسه دوم",link:this.videotest2},{name:"جلسه سوم",link:"#"}]
   comment="";
   guitar= '../../assets/image/download.jpg'
   selectedVideo;
@@ -16,12 +18,12 @@ export class ClassVideosComponent implements OnInit {
   message;
   class;
   loader;
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private elRef: ElementRef) { }
 
   ngOnInit(): void {
     this.selectedVideo=this.classVideos[0]["name"];
     this.classId=localStorage.getItem("classId")
-    
+    this.selectedVideo = this.videotest
     this.message = new Object()
     this.class=new Object()
     
@@ -54,8 +56,11 @@ export class ClassVideosComponent implements OnInit {
 
   changeVideo(num)
   {
-    this.selectedVideo=this.classVideos[num]["link"]
+    this.selectedVideo=this.classVideos[num].link
+
     console.log("selectedVideo: "+this.selectedVideo)
+    const player = this.elRef.nativeElement.querySelector('video');
+    player.load();
   }
 
 }

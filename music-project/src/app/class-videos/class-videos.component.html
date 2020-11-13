@@ -1,17 +1,17 @@
 <div class="classContainer shadow-lg p-4 rounded m-1">
-  <h3>{{class.title}}</h3>
+  <h3>کلاس گیتار</h3>
   <!-- <img class="mt-2" src="{{guitar}}" class=" col-6 mr-3" alt=""> -->
 
   <div class="summary mt-2 mb-4">
       <h5>چکیده:</h5>
-      <p class="card-text">{{class.description}}</p>
+      <p class="card-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
    
     
   </div>
 <div class="  mt-2 mb-4 d-flex flex-column align-items-center commentsContainer">
   <h3 class=" align-self-start">فهرست جلسات</h3>
   <video class="col-lg-8 col-12 h-50 videoContainer " controls="controls">
-    <source src="{{selectedVideo}}" type="video/mp4"  />
+    <source [src]="selectedVideo" type="video/mp4"  />
   </video>
   <small></small>
   </div>
@@ -54,7 +54,7 @@
   <span class=" col-12 text-right bg-danger border-top p-2 text-white" 
   *ngIf="!comment_.valid && comment_.touched ">لطفا این قسمت را پر کنید</span>
 </div>
-  <button class="btn btn-success btn-sm mr-1 ">ارسال</button>
+  <button class="btn btn-send-comment btn-success btn-sm mr-1 ">ارسال</button>
 </div>
 <div class="comment rounded bg-light d-flex flex-column p-1  mb-2 col-10 ">
   <div class="title mr-3 mt-2">18 آبان </div>
