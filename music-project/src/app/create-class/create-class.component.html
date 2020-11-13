@@ -5,10 +5,10 @@
     <img src="https://flevix.com/wp-content/uploads/2019/07/Comp-2.gif" alt="">
   </div> -->
   <div class=" shadow-lg p-4 mt-2 rounded">
-    <h3 class=" border-bottom border-dark text-center p-2">ایجاد ویدئو</h3>
-    <form class="form col-12 mt-3" #createvideo="ngForm">
+    <h3 class=" border-bottom border-dark text-center p-2">ایجاد کلاس</h3>
+    <form class="form col-12 mt-3" #createclass="ngForm">
         <input name="fullname" class="form-control col-8 " [(ngModel)]="class.name"
-        placeholder="لطفا نام خود را وارد کنید"
+        placeholder="لطفا نام کلاس خود را وارد کنید"
         #fullname="ngModel"
         required
         
@@ -24,13 +24,13 @@
        <div class="btn btn-sm btn-outline-dark" (click)="message=null">بستن</div>
     </div>
     <input (change)="fileChangeEvent($event)" name="image"  type="file"  />
-    </div>
+    
     <div class="form-group p-0 col-12 d-flex flex-column mt-4 ">
         <h3>اضافه کردن توضیح</h3>
     
         <textarea class="form-control" id="caption" rows="3"
         name="caption"
-        [(ngModel)]="class.caption"
+        [(ngModel)]="class.description"
         required
         #caption="ngModel"
         maxlength="255">
@@ -39,6 +39,6 @@
       <span class="border-top p-2 text-white col-12 bg-danger " *ngIf="caption.touched && !caption.valid && caption.errors.maxlength">متن طولانی است</span>
       </div>
     
-      <button class="btn btn-success col-12" (click)="sendvideo()" [disabled]="!createvideo.valid || selectedFile==null || classNameValue==undefined">ارسال</button>
+      <button class="btn btn-success col-12" (click)="createClass()" [disabled]="!createclass.valid || selectedFile==null ">ارسال</button>
     </form>
     </div>

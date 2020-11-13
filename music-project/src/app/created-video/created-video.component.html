@@ -1,8 +1,10 @@
-<div class="card m-1" style="width: 18rem;">
+<div class="d-flex flex-column classContainer flex-lg-row justify-content-start align-items-start flex-wrap p-2">
+<div *ngFor="let item of class" class="card m-1 col-12 col-lg-3" style="width: 18rem;">
     
   <div class="card-body">
-    <h5 class="card-title">کلاس گیتار</h5>
-    <p class="card-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-    <a routerLink="/profile/classVideos" class="btn btn-primary">مشاهده کلاس</a>
+    <h5 class="card-title">{{item.name}}</h5>
+    <p class="card-text">{{item.description}}</p>
+    <button (click)="classVideos(item.id)"  class="btn btn-primary">مشاهده کلاس</button>
   </div>
+</div>
 </div>

@@ -1,19 +1,19 @@
 <div class="classContainer shadow-lg p-4 rounded m-1">
-  <h3>کلاس گیتار</h3>
+  <h3>{{class.title}}</h3>
   <!-- <img class="mt-2" src="{{guitar}}" class=" col-6 mr-3" alt=""> -->
 
   <div class="summary mt-2 mb-4">
       <h5>چکیده:</h5>
-      <p class="card-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
+      <p class="card-text">{{class.description}}</p>
    
     
   </div>
 <div class="  mt-2 mb-4 d-flex flex-column align-items-center commentsContainer">
   <h3 class=" align-self-start">فهرست جلسات</h3>
   <video class="col-lg-8 col-12 h-50 videoContainer " controls="controls">
-    <source src="" type="video/mp4"  />
+    <source src="{{selectedVideo}}" type="video/mp4"  />
   </video>
-  <small>{{selectedVideo}}</small>
+  <small></small>
   </div>
   
 <table class="table col-lg-10 col-12 table-bordered m-2 mt-4 mb-4 videoContainer">

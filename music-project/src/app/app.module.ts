@@ -34,7 +34,8 @@ const routes=[
     {path:"uploadVideo",component:UploadVideoComponent},
     {path:"createdVideo",component:CreatedVideoComponent},
     {path:"classVideos",component:ClassVideosComponent},
-    {path:"allVideos",component:AllClassesComponent}
+    {path:"allVideos",component:AllClassesComponent},
+    {path:"createClass",component:CreateClassComponent}
   ]}
 ]
 
