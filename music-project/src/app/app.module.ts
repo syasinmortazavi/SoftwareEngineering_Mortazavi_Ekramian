@@ -21,6 +21,7 @@ import { CreatedVideoComponent } from './created-video/created-video.component';
 import { ClassVideosComponent } from './class-videos/class-videos.component';
 import { AllClassesComponent } from './all-classes/all-classes.component';
 import { CourseComponent } from './course/course.component';
+import { CreateClassComponent } from './create-class/create-class.component';
 
 const routes=[
   {path:"signup",component:SignupComponent},
@@ -56,7 +57,8 @@ const routes=[
     CreatedVideoComponent,
     ClassVideosComponent,
     AllClassesComponent,
-    CourseComponent
+    CourseComponent,
+    CreateClassComponent
   ],
   imports: [
     FormsModule,
