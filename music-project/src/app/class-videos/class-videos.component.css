@@ -12,3 +12,47 @@ i
     cursor: pointer;
     color: red;
 }
+.container
+{
+    width: 80% !important;
+    padding:10px !important;
+}
+tr:hover
+{
+    cursor: pointer;
+    background-color: silver;
+}
+.comment
+{
+    margin-right: 5% !important;
+}
+.classContainer
+{
+    overflow: scroll;
+    height: 100vh;
+    padding-bottom: 10% !important;
+    width: 73vw;
+}
+.commentsContainer
+{
+    margin-top: 10% !important;
+}
+.videoContainer
+{
+    margin-top: 3% !important;
+}
+
+@media screen and (max-width:600px)
+{
+    .classContainer
+    {
+        overflow: visible !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+}
+
+.btn-send-comment
+{
+    max-height: 40px !important;
+}

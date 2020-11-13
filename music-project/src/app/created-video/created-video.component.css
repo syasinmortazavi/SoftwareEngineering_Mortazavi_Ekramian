@@ -1,0 +1,32 @@
+.classContainer
+{
+    overflow: scroll;
+    height: 100vh;
+    padding-bottom: 10% !important;
+    
+
+    width: 73vw;
+}
+.card
+{
+    height: 50% !important;
+}
+.card-text
+{
+    min-height: 70% ;
+    
+}
+
+button
+{
+    margin-bottom: 5%  !important;
+}
+@media screen and (max-width:600px)
+{
+    .classContainer
+    {
+        overflow: visible !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+}

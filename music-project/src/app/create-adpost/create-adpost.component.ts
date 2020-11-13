@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,6 +11,7 @@ export class CreateAdpostComponent implements OnInit {
   message;
   loader=false
   selectedFile:File=null
+  progress=0
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
@@ -31,15 +32,26 @@ export class CreateAdpostComponent implements OnInit {
            'Authorization': "Token "+localStorage.getItem("token")
         });
         const httpOptions = {
-          headers: headers_object
+          headers: headers_object,
+          reportProgress: true,
+          observe: 'events' as 'body'
         };
         this.loader=true
         this.http.post("http://5.160.146.125/api/advertisement/advertisements/",fd,httpOptions).subscribe(res=>
         {
-          this.loader=false
+          
         this.message["msg"]="با موفقیت ایجاد شد"
         this.message["status"]=true
-          console.log("result of creating adPost: "+res);
+          console.log("result of creating adPost: "+ JSON.stringify(res));
+          if (res["type"] === HttpEventType.Response) {
+            console.log('Upload complete');
+            this.loader=false
+        }
+        if (res["type"] === HttpEventType.UploadProgress) {
+            const percentDone = Math.round(100 * res["loaded"] / res["total"]);
+            this.progress=percentDone;
+            console.log('Progress ' + percentDone + '%');
+        } 
           
         },
         err=>

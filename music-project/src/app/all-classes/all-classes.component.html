@@ -1,8 +1,5 @@
-<div class="card m-1" style="width: 18rem;">
-    
-    <div class="card-body">
-      <h5 class="card-title">کلاس گیتار</h5>
-      <p class="card-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-      <a routerLink="/profile/classVideos" class="btn btn-primary">مشاهده کلاس</a>
-    </div>
-  </div>
+<div class="d-flex flex-column class-container flex-lg-row flex-wrap align-items-start justify-content-between mt-4 mt-lg-1">
+<div *ngFor="let item of allClasses">
+<app-course [cost]="item.cost" [creator]="item.creator" [title]="item.title" [img]="item.img"></app-course>
+</div>
+</div>
