@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CreatedVideoComponent } from '../created-video/created-video.component';
 
 @Component({
   selector: 'app-all-classes',
@@ -19,6 +20,7 @@ export class AllClassesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

@@ -21,6 +21,12 @@ export class CreatedVideoComponent implements OnInit {
 
   ngOnInit(): void {
     
+   this.getClasses();
+
+  }
+
+  getClasses()
+  {
     this.message = new Object()
     this.class=new Object()
     
@@ -48,7 +54,6 @@ export class CreatedVideoComponent implements OnInit {
             this.message["status"]=false
             this.message["msg"]="خطا در انجام عملیات"
         })
-
   }
 
 }
