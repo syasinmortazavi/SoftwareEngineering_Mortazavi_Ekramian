@@ -68,7 +68,7 @@ const routes=[
     RouterModule.forRoot(routes),
     HttpClientModule
   ],
-  providers: [NavbarComponent,HttpClient,HttpClientModule],
+  providers: [NavbarComponent,HttpClient,HttpClientModule,CreatedVideoComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

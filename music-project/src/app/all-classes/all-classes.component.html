@@ -1,5 +1,5 @@
-<div class="d-flex flex-column class-container flex-lg-row flex-wrap align-items-start justify-content-between mt-4 mt-lg-1">
-<div *ngFor="let item of allClasses">
+<div class="d-flex  flex-column class-container flex-lg-row flex-wrap align-items-start justify-content-between mt-4 mt-lg-1">
+<div *ngFor="let item of allClasses" class=" m-1 col-12 col-lg-3">
 <app-course [cost]="item.cost" [creator]="item.creator" [title]="item.title" [img]="item.img"></app-course>
 </div>
 </div>
