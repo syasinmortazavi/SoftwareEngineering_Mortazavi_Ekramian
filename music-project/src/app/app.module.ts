@@ -25,6 +25,7 @@ import { CreateClassComponent } from './create-class/create-class.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './carousel/carousel.component';
+import { TopAdpostsComponent } from './top-adposts/top-adposts.component';
 
 const routes=[
   {path:"signup",component:SignupComponent},
@@ -65,7 +66,8 @@ const routes=[
     CourseComponent,
     CreateClassComponent,
     HomepageComponent,
-    CarouselComponent
+    CarouselComponent,
+    TopAdpostsComponent
   ],
   imports: [
     FormsModule,
