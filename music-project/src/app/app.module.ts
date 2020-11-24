@@ -26,11 +26,13 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TopAdpostsComponent } from './top-adposts/top-adposts.component';
+import { TeacherProfileForUserComponent } from './teacher-profile-for-user/teacher-profile-for-user.component';
 
 const routes=[
   {path:"signup",component:SignupComponent},
   {path:"login",component:LoginComponent},
   {path:"homepage",component:HomepageComponent},
+  {path:"teacher",component:TeacherProfileForUserComponent},
   {path:"profile",component:ProfileComponent,/*canActivate:[AuthGuard],*/ children:[
     {path:'',component:DetailComponent,pathMatch: 'full'},
     {path:"editProfile",component:EditProfileComponent},
@@ -67,7 +69,8 @@ const routes=[
     CreateClassComponent,
     HomepageComponent,
     CarouselComponent,
-    TopAdpostsComponent
+    TopAdpostsComponent,
+    TeacherProfileForUserComponent
   ],
   imports: [
     FormsModule,

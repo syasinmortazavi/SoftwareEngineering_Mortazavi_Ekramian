@@ -1,6 +1,17 @@
 .card
 {
-    height: 250px !important;
+    height: 350px !important;
+}
+
+.card img
+{
+    height: 140px !important;
+}
+
+.card:hover
+{
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 

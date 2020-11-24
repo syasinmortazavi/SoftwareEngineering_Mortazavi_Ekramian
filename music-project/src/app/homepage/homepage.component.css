@@ -1,0 +1,25 @@
+img
+{
+    height: 150px !important;
+}
+.music-item:hover
+{
+    cursor: pointer;
+    background-color: rgb(170, 195, 219);
+    border-radius: 10px;
+    padding: 10px;
+    transform: scale(1.05);
+}
+.music-item
+{
+    margin-top: 60px !important;
+}
+.music-item div
+{
+    margin-top: 10px !important;
+}
+.music-item:last-child div
+{
+    margin-right: 10px !important;
+}
+
