@@ -22,10 +22,17 @@ import { ClassVideosComponent } from './class-videos/class-videos.component';
 import { AllClassesComponent } from './all-classes/all-classes.component';
 import { CourseComponent } from './course/course.component';
 import { CreateClassComponent } from './create-class/create-class.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CarouselComponent } from './carousel/carousel.component';
+import { TopAdpostsComponent } from './top-adposts/top-adposts.component';
+import { TeacherProfileForUserComponent } from './teacher-profile-for-user/teacher-profile-for-user.component';
 
 const routes=[
   {path:"signup",component:SignupComponent},
   {path:"login",component:LoginComponent},
+  {path:"homepage",component:HomepageComponent},
+  {path:"teacher",component:TeacherProfileForUserComponent},
   {path:"profile",component:ProfileComponent,/*canActivate:[AuthGuard],*/ children:[
     {path:'',component:DetailComponent,pathMatch: 'full'},
     {path:"editProfile",component:EditProfileComponent},
@@ -59,14 +66,19 @@ const routes=[
     ClassVideosComponent,
     AllClassesComponent,
     CourseComponent,
-    CreateClassComponent
+    CreateClassComponent,
+    HomepageComponent,
+    CarouselComponent,
+    TopAdpostsComponent,
+    TeacherProfileForUserComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [NavbarComponent,HttpClient,HttpClientModule,CreatedVideoComponent],
   bootstrap: [AppComponent]

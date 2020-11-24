@@ -1,0 +1,12 @@
+.image-container
+{
+    height: 300px !important;
+}
+
+.teacher-information
+{
+    height: 200px;
+    background-color: lightblue;
+    padding: 10px;
+
+}

@@ -1,0 +1,32 @@
+.card
+{
+    height: 350px !important;
+}
+
+.card img
+{
+    height: 140px !important;
+}
+
+.card:hover
+{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+
+
+.header
+{
+  
+    padding:10px;
+
+}
+
+@media screen and (max-width:600px)
+{
+    .top-posts
+    {
+        overflow-y: scroll;
+    }
+}

@@ -1,0 +1,12 @@
+img
+{
+    width: 100% !important;
+}
+.carousel-container
+{
+    height: 65vh !important;
+}
+ngb-carousel
+{
+    height: 100% !important;
+}
