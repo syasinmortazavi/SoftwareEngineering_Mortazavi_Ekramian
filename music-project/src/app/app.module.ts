@@ -27,6 +27,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TopAdpostsComponent } from './top-adposts/top-adposts.component';
 import { TeacherProfileForUserComponent } from './teacher-profile-for-user/teacher-profile-for-user.component';
+import { SearchResultComponent } from './search-result/search-result.component';
+import { AdPostsForUserComponent } from './ad-posts-for-user/ad-posts-for-user.component';
 
 const routes=[
   {path:"signup",component:SignupComponent},
@@ -70,7 +72,9 @@ const routes=[
     HomepageComponent,
     CarouselComponent,
     TopAdpostsComponent,
-    TeacherProfileForUserComponent
+    TeacherProfileForUserComponent,
+    SearchResultComponent,
+    AdPostsForUserComponent
   ],
   imports: [
     FormsModule,
