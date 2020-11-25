@@ -10,6 +10,7 @@ export class TeacherProfileForUserComponent implements OnInit {
   teacher;
   loader=true
   AdPosts;
+  teacherPicture
   //'../../assets/image/download.jpg'
   constructor(private http:HttpClient) { }
 
@@ -30,6 +31,7 @@ export class TeacherProfileForUserComponent implements OnInit {
         this.teacher.Email=res[0]["Email"]
         this.teacher.Bio=res[0]["Bio"]
         this.teacher.AdPosts=res[0]["AdPosts"]
+        this.teacher.Image=res[0]["Image"]
       })
   }
 
