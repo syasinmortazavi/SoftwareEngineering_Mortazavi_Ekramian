@@ -24,7 +24,10 @@ export class TopAdpostsComponent implements OnInit {
       });
     })
   }
-
+  getAllPostsForUser()
+  {
+    this.router.navigateByUrl("AdPostsByTypeId")
+  }
   AdPostClick(Id)
   {
     localStorage.setItem("AdPostTeacherId",Id)

@@ -33,6 +33,7 @@ import { AdPostsForUserComponent } from './ad-posts-for-user/ad-posts-for-user.c
 const routes=[
   {path:"signup",component:SignupComponent},
   {path:"login",component:LoginComponent},
+  {path:"AdPostsByTypeId",component:AdPostsForUserComponent},
   {path:"homepage",component:HomepageComponent},
   {path:"teacher",component:TeacherProfileForUserComponent},
   {path:"profile",component:ProfileComponent,/*canActivate:[AuthGuard],*/ children:[

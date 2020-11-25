@@ -2,3 +2,8 @@ img
 {
     height: 300px;
 }
+.card
+{
+    cursor: pointer;
+    transform: scale(1.05);
+}
