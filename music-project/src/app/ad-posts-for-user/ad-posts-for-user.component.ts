@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ad-posts-for-user.component.css']
 })
 export class AdPostsForUserComponent implements OnInit {
-
-  constructor() { }
-
+  AdPosts;
+  constructor(private http:HttpClient) { }
+  
   ngOnInit(): void {
+    this.AdPosts = new Object()
+    this.http.get("").subscribe(res=>
+      {
+        this.AdPosts=res
+      })
   }
 
 }

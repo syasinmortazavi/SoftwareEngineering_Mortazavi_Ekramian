@@ -1,1 +1,13 @@
-<p>ad-posts-for-user works!</p>
+<div class="allCreatedPostByTeacher d-flex flex-column flex-lg-row flex-wrap pb-4 mt-4 ">
+    <div class="col-lg-3 col-12 m-4   card rounded " *ngFor="let item of AdPosts">
+        <div class="image-container rounded ">
+            <img class="card-img-top" src="../../assets/image/{{item.Image}}" alt="image">
+        </div>
+            <div class="card-body">
+              
+              <p class="card-text">{{item.Caption}}</p>
+              
+            </div>
+    </div>
+    
+    </div>
