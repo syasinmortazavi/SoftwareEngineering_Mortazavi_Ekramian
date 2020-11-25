@@ -28,6 +28,20 @@
 
 <div class=" mt-4 mr-2">
 	<h2 >دیدگاه:</h2>
+	
+	  <div class="row mr-4 mb-4"> 
+		<div class="col-10 d-flex flex-column">
+		<input name="fullname" class="form-control  " [(ngModel)]="comment"
+		placeholder="لطفا نظر خود راجع به کلاس را وارد کنید"
+		#comment_="ngModel"
+		required
+		maxlength="255"
+		>
+		<span class=" col-12 text-right bg-danger border-top p-2 text-white" 
+		*ngIf="!comment_.valid && comment_.touched ">لطفا این قسمت را پر کنید</span>
+		</div>
+	  
+	  </div>
 
 </div>
 
