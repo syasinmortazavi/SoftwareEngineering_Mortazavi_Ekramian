@@ -9,12 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class TeacherProfileForUserComponent implements OnInit {
   teacher;
   loader=true
+  AdPosts;
   //'../../assets/image/download.jpg'
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
     this.getTeacher()
     this.teacher=new Object()
+    this.AdPosts=new Object()
+    this.getTeacherAdPost()
   }
 
   getTeacher()
@@ -28,6 +31,17 @@ export class TeacherProfileForUserComponent implements OnInit {
         this.teacher.Bio=res[0]["Bio"]
         this.teacher.AdPosts=res[0]["AdPosts"]
       })
+  }
+
+  getTeacherAdPost()
+  {
+    this.http.get("https://localhost:44342/AdPost/GetAllAdPostByTeacherId?Id="+localStorage.getItem("AdPostTeacherId")).subscribe
+    (
+      res=>
+      {
+        this.AdPosts=res
+      }
+    )
   }
 
 }

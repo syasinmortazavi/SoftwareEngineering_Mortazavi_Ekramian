@@ -10,3 +10,24 @@
     padding: 10px;
 
 }
+img
+{
+    height: 300px;
+}
+.biography
+{
+    width:80vw !important;
+}
+.btn-send-comment
+{
+    max-height: 40px !important;
+}
+.rounded-circle
+{
+    border-radius: 1000px !important;
+}
+
+.teacher-all
+{
+    padding-bottom: 50px !important;
+}
