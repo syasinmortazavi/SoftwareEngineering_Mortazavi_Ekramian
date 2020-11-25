@@ -18,6 +18,7 @@ export class TeacherProfileForUserComponent implements OnInit {
   ngOnInit(): void {
     
     this.comment=new Object();
+    this.comment.msg=""
     this.getTeacher()
     this.teacher=new Object()
     this.AdPosts=new Object()
@@ -29,7 +30,7 @@ export class TeacherProfileForUserComponent implements OnInit {
     this.http.get("https://localhost:44342/Teacher/GetTeacherById?Id="+localStorage.getItem("AdPostTeacherId")).subscribe(res=>
       {
         this.loader=false;
-        localStorage.removeItem("AdPostTeacherId")
+        
         this.teacher.Name=res[0]["Name"]
         this.teacher.Email=res[0]["Email"]
         this.teacher.Bio=res[0]["Bio"]
@@ -51,13 +52,20 @@ export class TeacherProfileForUserComponent implements OnInit {
 
   getComments()
   {
-
+    this.comment.teacherId=parseInt(localStorage.getItem("AdPostTeacherId"))
+    this.http.get("https://localhost:44342/Teacher/getComment?teacherId="+this.comment.teacherId).subscribe(res=>
+    {
+      console.log(res);
+      
+    })
   }
 
   addComments()
   {
-    this.comment.techerId=parseInt(localStorage.getItem("AdPostTeacherId"))
-    this.http.post("https://localhost:44342/AdPost/AddComment",this.comment).subscribe(res=>
+    
+    
+    
+    this.http.get("https://localhost:44342/Teacher/AddComment?teacherId="+this.comment.teacherId+"&msg="+this.comment.msg).subscribe(res=>
     {
       console.log(res);
       
