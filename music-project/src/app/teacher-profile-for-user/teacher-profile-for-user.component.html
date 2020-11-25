@@ -1,15 +1,15 @@
 <div *ngIf="loader==false">
-<div class="d-flex flex-column flex-lg-row ">
-    <div class="teacher-information d-flex flex-column flex-lg-row bg-warning">
-        <div class="rounded-circle bg-warning">تصویر</div>
-        <div class="d-flex flex-column information-body p-3">
+<div class="d-flex flex-column flex-lg-row col-12 p-0 justify-content-center mt-2 ">
+    <div class="teacher-information d-flex flex-column flex-lg-row bg-warning col-4">
+        <div class="rounded-circle bg-danger col-5 ">تصویر</div>
+        <div class="d-flex flex-column col-7 information-body p-3 pt-4">
             <div>نام:{{teacher.Name}}</div>
             <div>ایمیل:{{teacher.Email}}</div>
             
             
         </div>
     </div>
-    <div class="biography bg-info">{{teacher.Bio}}</div>
+    <div class="biography bg-info col-8">{{teacher.Bio}}</div>
 </div>
 
 <div class="allCreatedPostByTeacher d-flex flex-column flex-lg-row flex-wrap">
