@@ -12,17 +12,20 @@ export class TeacherProfileForUserComponent implements OnInit {
   AdPosts;
   teacherPicture
   comment;
+  comments;
+  message=null
   //'../../assets/image/download.jpg'
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
-    
+    this.comments=new Object()
     this.comment=new Object();
     this.comment.msg=""
     this.getTeacher()
     this.teacher=new Object()
     this.AdPosts=new Object()
     this.getTeacherAdPost()
+    this.getComments()
   }
 
   getTeacher()
@@ -55,6 +58,7 @@ export class TeacherProfileForUserComponent implements OnInit {
     this.comment.teacherId=parseInt(localStorage.getItem("AdPostTeacherId"))
     this.http.get("https://localhost:44342/Teacher/getComment?teacherId="+this.comment.teacherId).subscribe(res=>
     {
+      this.comments=res;
       console.log(res);
       
     })
@@ -64,10 +68,14 @@ export class TeacherProfileForUserComponent implements OnInit {
   {
     
     
-    
+    this.comment.teacherId=parseInt(localStorage.getItem("AdPostTeacherId"))
     this.http.get("https://localhost:44342/Teacher/AddComment?teacherId="+this.comment.teacherId+"&msg="+this.comment.msg).subscribe(res=>
     {
+      
       console.log(res);
+      
+      this.message=res;
+      this.getComments()
       
     })
   }
