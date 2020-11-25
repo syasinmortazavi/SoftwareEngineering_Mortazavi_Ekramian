@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         {
           this.loader=false
           localStorage.setItem("token",res["token"])
-          this.route.navigateByUrl("profile")
+          this.route.navigateByUrl("homepage")
 
         }
         else
