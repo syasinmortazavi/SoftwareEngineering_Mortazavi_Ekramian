@@ -29,5 +29,16 @@ export class TeacherProfileForUserComponent implements OnInit {
         this.teacher.AdPosts=res[0]["AdPosts"]
       })
   }
+  
+  getTeacherAdPost()
+  {
+    this.http.get("https://localhost:44342/AdPost/GetAllAdPostByTeacherId?Id="+localStorage.getItem("AdPostTeacherId")).subscribe
+    (
+      res=>
+      {
+        this.AdPosts=res
+      }
+    )
+  }
 
 }
