@@ -2,7 +2,7 @@ img
 {
     height: 300px;
 }
-.card
+.card:hover
 {
     cursor: pointer;
     transform: scale(1.05);

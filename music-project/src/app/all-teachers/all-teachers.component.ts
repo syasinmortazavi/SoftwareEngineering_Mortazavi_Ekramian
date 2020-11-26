@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./all-teachers.component.css']
 })
 export class AllTeachersComponent implements OnInit {
-
+  image="default-user.svg"
   constructor() { }
 
   ngOnInit(): void {

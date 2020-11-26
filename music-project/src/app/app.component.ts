@@ -18,7 +18,7 @@ export class AppComponent {
     }
     else
     {
-    this.route.navigateByUrl("login")
+    this.route.navigateByUrl("homepage")
     }
   }
 }
