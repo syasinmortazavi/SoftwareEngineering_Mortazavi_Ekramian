@@ -30,9 +30,11 @@ export class TopAdpostsComponent implements OnInit {
     })
 
     this.getGuitarAdPosts()
+    this.getPianoAdPosts()
   }
   getAllPostsForUser()
   {
+    localStorage.setItem("categoryId",'0')
     this.router.navigateByUrl("AdPostsByTypeId")
   }
   AdPostClick(Id)

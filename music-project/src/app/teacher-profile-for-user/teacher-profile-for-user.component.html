@@ -1,6 +1,6 @@
 <div *ngIf="loader==false" class="col-12 teacher-all">
-<div class="d-flex flex-column flex-lg-row col-12 p-0 justify-content-center mt-2 rounded teacher-container ">
-    <div class="teacher-information d-flex flex-column flex-lg-row bg-warning col-4">
+<div class="d-flex flex-column bg-gray flex-lg-row col-12 p-0 justify-content-center mt-2 rounded teacher-container ">
+    <div class="teacher-information d-flex flex-column flex-lg-row  col-4">
         <div class=" rounded-circle  col-5   teacherImage">
           <img  src="../../assets/image/{{teacher.Image}}.svg" alt="">
         </div>
@@ -11,7 +11,11 @@
             
         </div>
     </div>
-    <div class="biography bg-info col-8">{{teacher.Bio}}</div>
+    <div class="biography d-flex flex-column col-8 border-right border-gray pt-3">
+      <h3>بیوگرافی</h3>
+      <div class="mt-1">{{teacher.Bio}}</div>
+      
+    </div>
 </div>
 
 <div class="allCreatedPostByTeacher d-flex flex-column flex-lg-row flex-wrap pb-4 mt-4 ">
