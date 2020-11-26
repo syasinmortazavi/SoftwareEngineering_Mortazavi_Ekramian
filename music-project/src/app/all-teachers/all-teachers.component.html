@@ -1,5 +1,5 @@
 <div class="d-flex flex-column flex-lg-row justify-content-between">
-    <div class="col-lg-2 col-12 m-4   card rounded " *ngFor="let item of teachers">
+    <div class="col-lg-2 col-12 m-4   card rounded " *ngFor="let item of teachers" (click)="teacherProfile(item.Id)">
         <div class="image-container rounded   ">
             <img class="card-img-top" src="../../assets/image/{{item.Image}}" alt="image">
         </div>

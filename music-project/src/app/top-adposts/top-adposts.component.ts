@@ -9,11 +9,14 @@ import { Router } from '@angular/router';
 })
 export class TopAdpostsComponent implements OnInit {
   adPosts
+  guitarAdPosts;
   public images=[]
   // image="../../assets/image/guitar-1.jpg"
   constructor(private http:HttpClient,private router:Router) { }
 
   ngOnInit(): void {
+    this.adPosts=new Object()
+    this.guitarAdPosts = new Object()
     this.http.get("https://localhost:44342/AdPost/GetTopAdPosts").subscribe(res=>
     {
       this.adPosts=res;
@@ -23,6 +26,8 @@ export class TopAdpostsComponent implements OnInit {
         
       });
     })
+
+    this.getGuitarAdPosts()
   }
   getAllPostsForUser()
   {
@@ -32,6 +37,14 @@ export class TopAdpostsComponent implements OnInit {
   {
     localStorage.setItem("AdPostTeacherId",Id)
     this.router.navigateByUrl("teacher")
+  }
+
+  getGuitarAdPosts()
+  {
+    this.http.get("https://localhost:44342/AdPost/GetTopAdPostsByTypeId?TypeId=1").subscribe(res=>
+    {
+      this.guitarAdPosts=res
+    })
   }
 
 }
