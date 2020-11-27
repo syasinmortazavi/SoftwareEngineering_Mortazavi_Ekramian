@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -12,9 +13,15 @@ export class HomepageComponent implements OnInit {
   violin="../../assets/image/violin.svg"
   flute="../../assets/image/flute.svg"
   sitar="../../assets/image/sitar.svg"
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+  }
+
+  getTypeId(typeId)
+  {
+    localStorage.setItem("categoryId",typeId)
+    this.router.navigateByUrl("AdPostsByTypeId")
   }
 
 }

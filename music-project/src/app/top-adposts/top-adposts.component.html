@@ -1,8 +1,8 @@
 
 <div class="top-posts d-flex flex-column ">
     <div class="header d-flex flex-row justify-content-between">
-        <h4>برترین پست های تبلیغاتی</h4>
-        <small class="text-info">مشاهده همه پست ها</small>
+        <h4>جدیدترین پست های تبلیغاتی</h4>
+        <small (click)="getAllPostsForUser()" class="text-info">مشاهده همه پست ها</small>
     </div>
 
 <div class="d-flex flex-row justify-content-between align-items-center top-post-items p-4  overflow-hidden">
@@ -10,14 +10,54 @@
         <div class="card col-6 col-lg-2 mr-2 ml-2 " *ngFor="let item of adPosts;let i=index" (click)="AdPostClick(item.TeacherId)">
           <img class="card-img-top" src="../../assets/image/{{item.Image}}" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">تیتر</h5>
+            
             <p class="card-text">{{item.Caption}}</p>
           </div>
-          <!-- <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div> -->
+        
         </div>
  
       
 </div>
 </div>
+<div class="top-posts d-flex flex-column ">
+  <div class="header d-flex flex-row justify-content-between">
+      <h4> گیتار</h4>
+      <small (click)="getTypeId(1)" class="text-info">مشاهده همه پست ها</small>
+  </div>
+
+<div class="d-flex flex-row justify-content-between align-items-center top-post-items p-4  overflow-hidden">
+  
+      <div class="card col-6 col-lg-2 mr-2 ml-2 " *ngFor="let item of guitarAdPosts;let i=index" (click)="AdPostClick(item.TeacherId)">
+        <img class="card-img-top" src="../../assets/image/{{item.Image}}" alt="Card image cap">
+        <div class="card-body">
+         
+          <p class="card-text">{{item.Caption}}</p>
+        </div>
+      
+      </div>
+
+    
+</div>
+</div>
+
+<div class="top-posts d-flex flex-column ">
+  <div class="header d-flex flex-row justify-content-between">
+      <h4> پیانو</h4>
+      <small (click)="getTypeId(2)" class="text-info">مشاهده همه پست ها</small>
+  </div>
+
+<div class="d-flex flex-row justify-content-between align-items-center top-post-items p-4  overflow-hidden">
+  
+      <div class="card col-6 col-lg-2 mr-2 ml-2 " *ngFor="let item of pianoAdPosts;let i=index" (click)="AdPostClick(item.TeacherId)">
+        <img class="card-img-top" src="../../assets/image/{{item.Image}}" alt="Card image cap">
+        <div class="card-body">
+         
+          <p class="card-text">{{item.Caption}}</p>
+        </div>
+      
+      </div>
+
+    
+</div>
+</div>
+

@@ -37,7 +37,7 @@ export class ClassVideosComponent implements OnInit {
           
         };
         this.loader=true
-        this.http.get("http://5.160.146.125/api/classroom/classrooms",httpOptions).subscribe(res=>
+        this.http.get("http://5.160.146.125/api/classroom/my_classrooms/"+this.classId,httpOptions).subscribe(res=>
         {
         this.class=res
         

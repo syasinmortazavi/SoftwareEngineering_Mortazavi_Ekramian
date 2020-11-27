@@ -1,0 +1,14 @@
+img
+{
+    height: 250px;
+}
+.card:hover
+{
+    cursor: pointer;
+    
+}
+
+.image-container
+{
+    border-radius: 1000px !important;
+}

@@ -11,14 +11,21 @@ export class TeacherProfileForUserComponent implements OnInit {
   loader=true
   AdPosts;
   teacherPicture
+  comment;
+  comments;
+  message=null
   //'../../assets/image/download.jpg'
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
+    this.comments=new Object()
+    this.comment=new Object();
+    this.comment.msg=""
     this.getTeacher()
     this.teacher=new Object()
     this.AdPosts=new Object()
     this.getTeacherAdPost()
+    this.getComments()
   }
 
   getTeacher()
@@ -26,7 +33,7 @@ export class TeacherProfileForUserComponent implements OnInit {
     this.http.get("https://localhost:44342/Teacher/GetTeacherById?Id="+localStorage.getItem("AdPostTeacherId")).subscribe(res=>
       {
         this.loader=false;
-        localStorage.removeItem("AdPostTeacherId")
+        
         this.teacher.Name=res[0]["Name"]
         this.teacher.Email=res[0]["Email"]
         this.teacher.Bio=res[0]["Bio"]
@@ -44,6 +51,33 @@ export class TeacherProfileForUserComponent implements OnInit {
         this.AdPosts=res
       }
     )
+  }
+
+  getComments()
+  {
+    this.comment.teacherId=parseInt(localStorage.getItem("AdPostTeacherId"))
+    this.http.get("https://localhost:44342/Teacher/getComment?teacherId="+this.comment.teacherId).subscribe(res=>
+    {
+      this.comments=res;
+      console.log(res);
+      
+    })
+  }
+
+  addComments()
+  {
+    
+    
+    this.comment.teacherId=parseInt(localStorage.getItem("AdPostTeacherId"))
+    this.http.get("https://localhost:44342/Teacher/AddComment?teacherId="+this.comment.teacherId+"&msg="+this.comment.msg).subscribe(res=>
+    {
+      
+      console.log(res);
+      
+      this.message=res;
+      this.getComments()
+      
+    })
   }
 
 }

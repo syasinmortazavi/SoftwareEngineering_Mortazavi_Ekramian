@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CreatedVideoComponent } from '../created-video/created-video.component';
 
@@ -12,14 +13,24 @@ export class AllClassesComponent implements OnInit {
   private threeString = '../../assets/image/Three-string-instrument-4.jpg'
   private santoor = '../../assets/image/unnamed.jpg'
   
-  allClasses=[{cost:0,creator:"تست",img:this.threeString,title:"کلاس سه تار"},
-              {cost:120000,creator:"تست",img:this.santoor,title:"کلاس سنتور"},
-              {cost:250000,creator:"تست",img:this.guitar,title:"کلاس گیتار"},
-              {cost:0,creator:"تست",img:this.piano,title:"کلاس پیانو"}
-            ]
-  constructor() { }
+  allClasses;
+  constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
+    this.allClasses = new Object()
+    var headers_object = new HttpHeaders({
+      'Content-Type': 'application/json',
+       'Authorization': "Token "+localStorage.getItem("token")
+    });
+    const httpOptions = {
+      headers: headers_object,
+      
+    };
+
+    this.http.get("http://5.160.146.125/api/classroom/classrooms/").subscribe(res=>
+    {
+      this.allClasses=res;
+    })
     
   }
 

@@ -16,7 +16,8 @@ img
 }
 .teacher-container
 {
-    background-color: rgb(116, 198, 248);
+    /* background-color: rgb(116, 198, 248); */
+    background-color: lightblue;
 }
 .teacherImage img
 {

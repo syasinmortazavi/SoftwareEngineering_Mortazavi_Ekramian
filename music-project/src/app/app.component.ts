@@ -12,13 +12,13 @@ export class AppComponent {
 
   constructor(private route:Router)
   {
-    // if(localStorage.getItem("token")!=null)
-    // {
-    //   this.route.navigateByUrl("profile")
-    // }
-    // else
-    // {
+    if(localStorage.getItem("token")!=null)
+    {
+      this.route.navigateByUrl("homepage")
+    }
+    else
+    {
     this.route.navigateByUrl("homepage")
-    // }
+    }
   }
 }
