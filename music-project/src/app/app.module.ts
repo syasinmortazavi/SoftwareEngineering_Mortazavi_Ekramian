@@ -30,6 +30,7 @@ import { TeacherProfileForUserComponent } from './teacher-profile-for-user/teach
 import { SearchResultComponent } from './search-result/search-result.component';
 import { AdPostsForUserComponent } from './ad-posts-for-user/ad-posts-for-user.component';
 import { AllTeachersComponent } from './all-teachers/all-teachers.component';
+import { SearchComponent } from './search/search.component';
 
 const routes=[
   {path:"signup",component:SignupComponent},
@@ -78,7 +79,8 @@ const routes=[
     TeacherProfileForUserComponent,
     SearchResultComponent,
     AdPostsForUserComponent,
-    AllTeachersComponent
+    AllTeachersComponent,
+    SearchComponent
   ],
   imports: [
     FormsModule,
