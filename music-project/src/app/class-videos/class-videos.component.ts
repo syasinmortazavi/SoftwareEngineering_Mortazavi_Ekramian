@@ -7,10 +7,10 @@ import { Component, ElementRef, OnInit } from '@angular/core';
   styleUrls: ['./class-videos.component.css']
 })
 export class ClassVideosComponent implements OnInit {
-  videotest="../../assets/image/test.mp4"
-  videotest2="../../assets/image/test2.mp4"
+  
+  
 
-  classVideos=[{name:"جلسه اول",link:this.videotest},{name:"جلسه دوم",link:this.videotest2},{name:"جلسه سوم",link:"#"}]
+  
   comment="";
   guitar= '../../assets/image/download.jpg'
   selectedVideo;
@@ -18,12 +18,16 @@ export class ClassVideosComponent implements OnInit {
   message;
   class;
   loader;
+  tutorials=[]
+  httpOptions;
+  commentList=[];
+  
   constructor(private http:HttpClient,private elRef: ElementRef) { }
 
   ngOnInit(): void {
-    this.selectedVideo=this.classVideos[0]["name"];
+    
     this.classId=localStorage.getItem("classId")
-    this.selectedVideo = this.videotest
+    
     this.message = new Object()
     this.class=new Object()
     
@@ -32,14 +36,36 @@ export class ClassVideosComponent implements OnInit {
           // 'Content-Type': 'application/json',
            'Authorization': "Token "+localStorage.getItem("token")
         });
-        const httpOptions = {
+         this.httpOptions = {
           headers: headers_object,
           
         };
+   
         this.loader=true
-        this.http.get("http://5.160.146.125/api/classroom/my_classrooms/"+this.classId,httpOptions).subscribe(res=>
+        this.http.get("http://5.160.146.125/api/classroom/my_classrooms/"+this.classId,this.httpOptions).subscribe(res=>
         {
         this.class=res
+     
+      
+        
+        this.class.tutorials.forEach(element => {
+          this.http.get("http://5.160.146.125/api/classroom/tutorials/"+element,this.httpOptions).subscribe(res=>{
+             this.tutorials.push(res);
+          })
+
+          
+          
+          
+          
+        })
+        ;
+        this.selectedVideo = this.tutorials[0].video
+        
+        
+
+         
+         
+        
         
        
           
@@ -52,15 +78,31 @@ export class ClassVideosComponent implements OnInit {
             this.message["status"]=false
             this.message["msg"]="خطا در انجام عملیات"
         })
+
+        
   }
 
   changeVideo(num)
   {
-    this.selectedVideo=this.classVideos[num].link
+    this.selectedVideo=this.tutorials[num].video
 
     console.log("selectedVideo: "+this.selectedVideo)
     const player = this.elRef.nativeElement.querySelector('video');
     player.load();
   }
+
+  addComment()
+  {
+    var commentObj = new Object()
+    commentObj["text"] = this.comment
+    commentObj["classroom"] = this.classId
+    this.http.post("http://5.160.146.125/api/classroom/comments/",commentObj,this.httpOptions).subscribe(res=>
+    {
+      console.log("ooooooooooooooomad: "+res);
+    })
+
+  }
+
+ 
 
 }
