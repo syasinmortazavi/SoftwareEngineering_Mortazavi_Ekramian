@@ -30,6 +30,9 @@ import { TeacherProfileForUserComponent } from './teacher-profile-for-user/teach
 import { SearchResultComponent } from './search-result/search-result.component';
 import { AdPostsForUserComponent } from './ad-posts-for-user/ad-posts-for-user.component';
 import { AllTeachersComponent } from './all-teachers/all-teachers.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+
+
 import { SearchComponent } from './search/search.component';
 
 const routes=[

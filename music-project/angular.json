@@ -20,10 +20,12 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
+             
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@ng-select/ng-select/themes/default.theme.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
@@ -89,6 +91,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@ng-select/ng-select/themes/default.theme.css",
               "src/styles.css"
             ],
             "scripts": []
