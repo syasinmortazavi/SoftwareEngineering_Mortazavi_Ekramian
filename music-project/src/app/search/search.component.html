@@ -1,1 +1,19 @@
-<p>search works!</p>
+<div class="col-6 mt-4">
+<h6>دسته بندی را انتخاب کنید</h6>
+<ng-select [disabled]="searchType==2" (click)="changeSearchTypeToCategory()" [multiple]="true" [(ngModel)]="selectedCategory">
+    <ng-option *ngFor="let item of category" [value]="item.id">{{item.name}}</ng-option>
+    
+</ng-select>
+
+ {{selectedCategory}}
+</div>
+<div class="col-6">
+    <div (click)="changeSearchTypeToCategory()">
+    <input class=" form-control" [disabled]="searchType==2" type="text" name="searchForAdPosts"
+     [(ngModel)]="searchTerm" placeholder="جست و جو در متن پست های تبلیغاتی">
+    </div>
+    <div (click)="changeSearchTypeToTeacher()" class="mt-2">
+     <input  class=" form-control" [disabled]="searchType==1" type="text" name="searchForTeachers"
+     [(ngModel)]="searchTermForTeacher" placeholder="جست و جو در بین اساتید">
+    </div>
+</div>
