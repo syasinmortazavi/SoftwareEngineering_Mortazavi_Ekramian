@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class CreatedVideoComponent implements OnInit {
   class;
   message
+  tutorials=[]
   constructor(private http:HttpClient,private route:Router) { }
 
   classVideos(id)
@@ -40,9 +41,10 @@ export class CreatedVideoComponent implements OnInit {
           
         };
         
-        this.http.get("http://5.160.146.125/api/classroom/classrooms/",httpOptions).subscribe(res=>
+        this.http.get("http://5.160.146.125/api/classroom/my_classrooms/",httpOptions).subscribe(res=>
         {
         this.class=res
+     
        
           
       
