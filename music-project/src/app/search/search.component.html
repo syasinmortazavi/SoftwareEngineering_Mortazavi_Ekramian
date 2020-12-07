@@ -21,6 +21,20 @@
 <div class="result d-flex flex-column flex-lg-row flex-wrap">
     <div class="col-3"></div>
 </div>
-
 <button class="btn btn-outline-dark" (click)="getDataBySearchTermForAdPosts()">جست و جو</button>
+<div class="allCreatedPostByTeacher d-flex flex-column flex-lg-row flex-wrap pb-4 mt-4 " *ngIf="searchResultAdPosts!=null">
+    <div class="col-lg-3 col-12 m-4   card rounded " *ngFor="let item of searchResultAdPosts"  (click)="AdPostClick(item.TeacherId)">
+        <div class="image-container rounded ">
+            <img class="card-img-top" src="../../assets/image/{{item.Image}}" alt="image">
+        </div>
+            <div class="card-body">
+              
+              <p class="card-text">{{item.Caption}}</p>
+              
+            </div>
+    </div>
+    
+    </div>
+
+
 
