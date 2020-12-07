@@ -102,4 +102,12 @@ export class SearchComponent implements OnInit {
   this.router.navigateByUrl("teacher")
 }
 
+  teacherProfile(Id)
+  {
+    
+    localStorage.setItem("AdPostTeacherId",Id)
+    this.router.navigateByUrl("teacher")
+    
+  }
+
 }
