@@ -1,0 +1,61 @@
+<div class="d-flex flex-column justify-content-center align-items-center border-gray border-bottom pb-2 ">
+<div class="col-6 mt-4">
+<h6>دسته بندی را انتخاب کنید</h6>
+<ng-select [disabled]="searchType==2"  (click)="changeSearchTypeToCategory()" [multiple]="true" [(ngModel)]="selectedCategory">
+    <ng-option *ngFor="let item of category" [value]="item.id">{{item.name}}</ng-option>
+    
+</ng-select>
+
+
+</div>
+<div class="col-6">
+    <div (click)="changeSearchTypeToCategory()">
+    <input class=" form-control mt-1" [disabled]="searchType==2" type="text" name="searchForAdPosts"
+     [(ngModel)]="searchTerm" placeholder="جست و جو در متن پست های تبلیغاتی">
+    </div>
+    <div (click)="changeSearchTypeToTeacher()" class="mt-2">
+     <input  class=" form-control" [disabled]="searchType==1" type="text" name="searchForTeachers"
+     [(ngModel)]="searchTermForTeacher" placeholder="جست و جو در میان اساتید">
+    </div>
+</div>
+
+<div class="result d-flex flex-column flex-lg-row flex-wrap">
+    <div class="col-3"></div>
+</div>
+<button class="btn btn-outline-dark col-5 mt-2" (click)="getDataBySearchTermForAdPosts()">جست و جو</button>
+</div>
+<div class="allCreatedPostByTeacher d-flex flex-column flex-lg-row flex-wrap pb-4 mt-4 " *ngIf="searchResultAdPosts!=null">
+    <div class="col-lg-3 col-12 m-4   card rounded " *ngFor="let item of searchResultAdPosts"  (click)="AdPostClick(item.TeacherId)">
+        <div class="image-container rounded ">
+            <img class="card-img-top" src="../../assets/image/{{item.Image}}" alt="image">
+        </div>
+            <div class="card-body">
+              
+              <p class="card-text">{{item.Caption}}</p>
+              
+            </div>
+    </div>
+    
+    </div>
+
+    <div class="d-flex flex-column flex-lg-row justify-content-start flex-wrap">
+        <div class="col-lg-3 col-12 m-4   card rounded " *ngFor="let item of searchResultTeachers" (click)="teacherProfile(item.Id)">
+            <div class="image-container rounded   ">
+                <img class="card-img-top" src="../../assets/image/{{item.Image}}.svg" alt="image">
+            </div>
+                <div class="card-body d-flex flex-column">
+                  <div>ایمیل:{{item.Email}}</div>
+                  <div>نام:{{item.Name}}</div>
+                  
+                  
+                </div>
+                <div class="border-top border-gray  col-12">
+                    <div class="btn btn-info mt-2 mb-2" (click)="teacherProfile(item.Id)">مشاهده پروفایل</div>
+                </div>
+        </div>
+    </div>
+
+    <div class="text-center" *ngIf="searchResultAdPosts && searchResultAdPosts.length==0 || searchResultTeachers&& searchResultTeachers.length==0">هیچ موردی یافت نشد</div>
+
+
+

@@ -30,6 +30,11 @@ import { TeacherProfileForUserComponent } from './teacher-profile-for-user/teach
 import { SearchResultComponent } from './search-result/search-result.component';
 import { AdPostsForUserComponent } from './ad-posts-for-user/ad-posts-for-user.component';
 import { AllTeachersComponent } from './all-teachers/all-teachers.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+
+
+
+import { SearchComponent } from './search/search.component';
 
 const routes=[
   {path:"signup",component:SignupComponent},
@@ -38,6 +43,7 @@ const routes=[
   {path:"homepage",component:HomepageComponent},
   {path:"teacher",component:TeacherProfileForUserComponent},
   {path:"AllTeachers",component:AllTeachersComponent},
+  {path:"search",component:SearchComponent},
   {path:"profile",component:ProfileComponent,/*canActivate:[AuthGuard],*/ children:[
     {path:'',component:DetailComponent,pathMatch: 'full'},
     {path:"editProfile",component:EditProfileComponent},
@@ -78,9 +84,11 @@ const routes=[
     TeacherProfileForUserComponent,
     SearchResultComponent,
     AdPostsForUserComponent,
-    AllTeachersComponent
+    AllTeachersComponent,
+    SearchComponent
   ],
   imports: [
+    NgSelectModule,
     FormsModule,
     BrowserModule,
     AppRoutingModule,
