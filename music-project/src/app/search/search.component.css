@@ -7,3 +7,8 @@ img
     cursor: pointer;
     transform: scale(1.05);
 }
+
+.image-container
+{
+    border-radius: 1000px !important;
+}

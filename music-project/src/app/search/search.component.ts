@@ -57,6 +57,7 @@ export class SearchComponent implements OnInit {
 
   getDataBySearchTermForAdPosts()
   {
+    this.searchResultTeachers=null
     if(this.searchType==1)
     {
 
@@ -81,7 +82,7 @@ export class SearchComponent implements OnInit {
 
   getTeacherBySearchTerm()
   {
-    
+    this.searchResultAdPosts=null
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json');
    
