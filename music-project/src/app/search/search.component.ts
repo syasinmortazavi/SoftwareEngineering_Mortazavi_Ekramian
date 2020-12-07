@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -7,14 +8,20 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  path="https://localhost:44342/"
   selectedCategory=[]
+  result;
   searchType=1
   searchTerm=''
+  searchFilters;
   searchTermForTeacher=''
   category=[{id:1,name:"گیتار"},{id:2,name:"سنتور"},{id:3,name:"فلوت"}]
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
+    this.searchFilters=new Object()
+    this.result = new Object()
+    this.result=null;
   }
 
   changeSearchTypeToCategory()
@@ -38,6 +45,21 @@ export class SearchComponent implements OnInit {
       this.selectedCategory=[]
       
     }
+  }
+
+  getDataBySearchTermForAdPosts()
+  {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json');
+   
+    
+    
+    this.searchFilters.searchTerm=this.searchTerm
+    this.searchFilters.types=this.selectedCategory
+    this.http.get(this.path+"AdPost/getAdPostsBySearchTerm?searchFilters="+encodeURIComponent(JSON.stringify(this.searchFilters))).subscribe(res=>
+      {
+        console.log("result*******: "+res)
+      })
   }
 
 }
