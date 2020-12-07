@@ -17,13 +17,17 @@ export class SearchComponent implements OnInit {
   searchFilters;
   searchTermForTeacher=''
   searchResultAdPosts;
+  searchResultTeachers;
+
   category=[{id:1,name:"گیتار"},{id:2,name:"سنتور"},{id:3,name:"فلوت"}]
   constructor(private http:HttpClient,protected router:Router) { }
 
   ngOnInit(): void {
     this.searchFilters=new Object()
     this.searchResultAdPosts = new Object()
+    this.searchResultTeachers = new Object()
     this.searchResultAdPosts = null
+    this.searchResultTeachers=null
     this.result = new Object()
     this.result=null;
   }
@@ -53,6 +57,10 @@ export class SearchComponent implements OnInit {
 
   getDataBySearchTermForAdPosts()
   {
+    if(this.searchType==1)
+    {
+
+    
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json');
    
@@ -63,6 +71,27 @@ export class SearchComponent implements OnInit {
     this.http.get(this.path+"AdPost/getAdPostsBySearchTerm?searchFilters="+encodeURIComponent(JSON.stringify(this.searchFilters))).subscribe(res=>
       {
         this.searchResultAdPosts=res
+      })
+    }
+  else
+  {
+    this.getTeacherBySearchTerm()
+  }
+}
+
+  getTeacherBySearchTerm()
+  {
+    
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json');
+   
+    
+    
+    this.searchFilters.searchTerm=this.searchTerm
+    this.searchFilters.types=this.selectedCategory
+    this.http.get(this.path+"Teacher/getTeacherBySearchTerm?searchTerm="+this.searchTermForTeacher).subscribe(res=>
+      {
+        this.searchResultTeachers=res
       })
   }
 
