@@ -1,27 +1,29 @@
+<div class="d-flex flex-column justify-content-center align-items-center border-gray border-bottom pb-2 ">
 <div class="col-6 mt-4">
 <h6>دسته بندی را انتخاب کنید</h6>
-<ng-select [disabled]="searchType==2" (click)="changeSearchTypeToCategory()" [multiple]="true" [(ngModel)]="selectedCategory">
+<ng-select [disabled]="searchType==2"  (click)="changeSearchTypeToCategory()" [multiple]="true" [(ngModel)]="selectedCategory">
     <ng-option *ngFor="let item of category" [value]="item.id">{{item.name}}</ng-option>
     
 </ng-select>
 
- {{selectedCategory}}
+
 </div>
 <div class="col-6">
     <div (click)="changeSearchTypeToCategory()">
-    <input class=" form-control" [disabled]="searchType==2" type="text" name="searchForAdPosts"
+    <input class=" form-control mt-1" [disabled]="searchType==2" type="text" name="searchForAdPosts"
      [(ngModel)]="searchTerm" placeholder="جست و جو در متن پست های تبلیغاتی">
     </div>
     <div (click)="changeSearchTypeToTeacher()" class="mt-2">
      <input  class=" form-control" [disabled]="searchType==1" type="text" name="searchForTeachers"
-     [(ngModel)]="searchTermForTeacher" placeholder="جست و جو در بین اساتید">
+     [(ngModel)]="searchTermForTeacher" placeholder="جست و جو در میان اساتید">
     </div>
 </div>
 
 <div class="result d-flex flex-column flex-lg-row flex-wrap">
     <div class="col-3"></div>
 </div>
-<button class="btn btn-outline-dark" (click)="getDataBySearchTermForAdPosts()">جست و جو</button>
+<button class="btn btn-outline-dark col-5 mt-2" (click)="getDataBySearchTermForAdPosts()">جست و جو</button>
+</div>
 <div class="allCreatedPostByTeacher d-flex flex-column flex-lg-row flex-wrap pb-4 mt-4 " *ngIf="searchResultAdPosts!=null">
     <div class="col-lg-3 col-12 m-4   card rounded " *ngFor="let item of searchResultAdPosts"  (click)="AdPostClick(item.TeacherId)">
         <div class="image-container rounded ">
@@ -52,6 +54,8 @@
                 </div>
         </div>
     </div>
+
+    <div class="text-center" *ngIf="searchResultAdPosts && searchResultAdPosts.length==0 || searchResultTeachers&& searchResultTeachers.length==0">هیچ موردی یافت نشد</div>
 
 
 
