@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
-
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserNavbarComponent } from './user-navbar/user-navbar.component';
@@ -35,6 +34,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 
 import { SearchComponent } from './search/search.component';
+import { ChatComponent } from './chat/chat.component';
 
 const routes=[
   {path:"signup",component:SignupComponent},
@@ -44,6 +44,7 @@ const routes=[
   {path:"teacher",component:TeacherProfileForUserComponent},
   {path:"AllTeachers",component:AllTeachersComponent},
   {path:"search",component:SearchComponent},
+  {path:"chat",component:ChatComponent},
   {path:"profile",component:ProfileComponent,/*canActivate:[AuthGuard],*/ children:[
     {path:'',component:DetailComponent,pathMatch: 'full'},
     {path:"editProfile",component:EditProfileComponent},
@@ -54,6 +55,7 @@ const routes=[
     {path:"classVideos",component:ClassVideosComponent},
     {path:"allVideos",component:AllClassesComponent},
     {path:"createClass",component:CreateClassComponent}
+    
   ]}
 ]
 
@@ -85,7 +87,8 @@ const routes=[
     SearchResultComponent,
     AdPostsForUserComponent,
     AllTeachersComponent,
-    SearchComponent
+    SearchComponent,
+    ChatComponent
   ],
   imports: [
     NgSelectModule,
@@ -95,6 +98,7 @@ const routes=[
     RouterModule.forRoot(routes),
     HttpClientModule,
     NgbModule
+    
   ],
   providers: [NavbarComponent,HttpClient,HttpClientModule,CreatedVideoComponent],
   bootstrap: [AppComponent]
