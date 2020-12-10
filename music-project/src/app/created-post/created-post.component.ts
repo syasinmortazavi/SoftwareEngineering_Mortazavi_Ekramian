@@ -22,7 +22,7 @@ export class CreatedPostComponent implements OnInit {
       headers: headers_object
     };
     this.loader=true;
-    this.http.get("http://5.160.146.125/api/advertisement/advertisements/",this.httpOptions).subscribe(
+    this.http.get("http://5.160.146.125/api/advertisement/my_advertisements/",this.httpOptions).subscribe(
       res=>
       {
         this.post=res;

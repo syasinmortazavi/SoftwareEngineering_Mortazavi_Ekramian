@@ -16,6 +16,7 @@ export class CreateAdpostComponent implements OnInit {
 
   ngOnInit(): void {
     this.adPost=new Object()
+    this.adPost.tags=['guitar']
     this.message = new Object()
     
   }
@@ -26,6 +27,7 @@ export class CreateAdpostComponent implements OnInit {
     const fd = new FormData()
     fd.append('image',this.adPost.image)
     fd.append('caption',this.adPost.caption)
+    fd.append('tags',this.adPost.tags)
     console.log("adPost: "+ JSON.stringify(this.adPost));
         var headers_object = new HttpHeaders({
           // 'Content-Type': 'application/json',
@@ -37,7 +39,7 @@ export class CreateAdpostComponent implements OnInit {
           observe: 'events' as 'body'
         };
         this.loader=true
-        this.http.post("http://5.160.146.125/api/advertisement/advertisements/",fd,httpOptions).subscribe(res=>
+        this.http.post("http://5.160.146.125/api/advertisement/my_advertisements/",fd,httpOptions).subscribe(res=>
         {
           
         this.message["msg"]="با موفقیت ایجاد شد"
@@ -73,6 +75,12 @@ export class CreateAdpostComponent implements OnInit {
     console.log(e.target.files[0])
     console.log(this.adPost.image);
     
+  }
+
+  setTag(tag)
+  {
+    this.adPost.tags=[tag]
+
   }
 
 }

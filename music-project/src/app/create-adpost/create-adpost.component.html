@@ -28,9 +28,21 @@
   </textarea>
   <span class="border-top p-2 text-white col-12 bg-danger " *ngIf="caption.touched && !caption.valid && !caption.errors.maxlength">لطفا متنی را برای توضیح بنویسید</span>
   <span class="border-top p-2 text-white col-12 bg-danger " *ngIf="caption.touched && !caption.valid && caption.errors.maxlength">متن طولانی است</span>
+
   </div>
 
-  <button class="btn btn-success col-12" (click)="sendAdPost()" [disabled]="!createAdPost.valid || selectedFile==null">ارسال</button>
+  <div>تگ مورد نظر را انتخاب کنید</div>
+
+  <select  class="form-control col-8" (change)="setTag($event.target.value)">
+    <option value="guitar" selected>گیتار</option>
+    <option value="piano">پیانو</option>
+    <option value="sitar">سه تار</option>
+    <option value="violin">ویولن</option>
+    <option value="flute">فلوت</option>
+    <option value="santoor">سنتور</option>
+  </select>
+
+  <button class="btn btn-success col-12 mt-4" (click)="sendAdPost()" [disabled]="!createAdPost.valid || selectedFile==null">ارسال</button>
   <div class="progress" *ngIf="progress>0 && progress<100">
     <div class="progress-bar" role="progressbar" style="width: {{progress}}%;" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100">{{progress}}%</div>
   </div>

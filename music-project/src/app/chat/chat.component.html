@@ -41,24 +41,29 @@
           </div>
         </div>
         <div class="mesgs">
-          <div class="msg_history">
-            <div class="incoming_msg">
-              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="received_msg">
-                <div class="received_withd_msg">
-                  <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                       از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
-                       ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز</p>
-                  <span class="time_date"> 11:01 AM    |    June 9</span></div>
+          <div class="msg_history" *ngIf="chatMessages!=null">
+           
+            <div *ngFor="let item of chatMessages ">
+              <div>
+            <div class="incoming_msg" *ngIf="item.sender!=7" >
+              <div class="incoming_msg_img" > <img  src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+              <div class="received_msg" >
+                <div class="received_withd_msg" >
+                  <p>{{item.text}}</p>
+                  <span class="time_date">{{item.datetime.split("T")[0]}}</span></div>
               </div>
             </div>
-            <div class="outgoing_msg">
+            <div class="outgoing_msg" *ngIf="item.sender==7" >
               <div class="sent_msg">
-                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                    از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
-                    ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز</p>
-                <span class="time_date"> 11:01 AM    |    June 9</span> </div>
+                <p>{{item.text}}</p>
+                <span class="time_date">{{item.datetime.split("T")[0]}}</span> </div>
             </div>
+            </div>
+            
+          </div>
+         
+            
+          
             <div class="incoming_msg">
               <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
               <div class="received_msg">
@@ -103,8 +108,8 @@
           </div>
           <div class="type_msg">
             <div class=" d-flex flex-row justify-content-between">
-              <textarea type="text" rows="1"  class="form-control" placeholder="پیام خود را تایپ کنید"></textarea>
-              <button class="text-dark btn btn-outline-info btn-send" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+              <textarea type="text" rows="1" name="TextInput" [(ngModel)]="message.text"  class="form-control" placeholder="پیام خود را تایپ کنید"></textarea>
+              <button class="text-dark btn btn-outline-info btn-send" (click)="sendMessage()" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
             </div>
           </div>
         </div>
