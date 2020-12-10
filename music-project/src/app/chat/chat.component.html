@@ -4,12 +4,12 @@
 
 <div class="container">
 <h3 class=" text-center">چت</h3>
-<div class="messaging">
-      <div class="inbox_msg">
+<div class="messaging rounded">
+      <div class="inbox_msg rounded">
         <div class="inbox_people">
           
           <div class="inbox_chat">
-            <div class="chat_list active_chat">
+            <div (click)="activeChat=1" class="chat_list " [ngClass]="{'active_chat':activeChat==1}">
               <div class="chat_people">
                 <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
                 <div class="chat_ib">
@@ -20,14 +20,16 @@
                 </div>
               </div>
             </div>
-            <div class="chat_list">
+            <div (click)="activeChat=2" class="chat_list" [ngClass]="{'active_chat':activeChat==2}">
               <div class="chat_people">
                 <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
                 <div class="chat_ib">
                   <h5>تست 2
                       <!-- <span class="chat_date">Dec 25</span> -->
                     </h5>
-                  <p>تست</p>
+                  <p class="summary">تستتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتت
+                    تتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتت
+                  </p>
                 </div>
               </div>
             </div>
@@ -67,19 +69,49 @@
                   <span class="time_date"> 11:01 AM    |    Yesterday</span></div>
               </div>
             </div>
+            <div class="incoming_msg">
+              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+              <div class="received_msg">
+                <div class="received_withd_msg">
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+                        از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
+                        ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز</p>
+                  <span class="time_date"> 11:01 AM    |    Yesterday</span></div>
+              </div>
+            </div>
+            <div class="incoming_msg">
+              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+              <div class="received_msg">
+                <div class="received_withd_msg">
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+                        از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
+                        ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز</p>
+                  <span class="time_date"> 11:01 AM    |    Yesterday</span></div>
+              </div>
+            </div>
+            <div class="incoming_msg">
+              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+              <div class="received_msg">
+                <div class="received_withd_msg">
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+                        از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
+                        ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز</p>
+                  <span class="time_date"> 11:01 AM    |    Yesterday</span></div>
+              </div>
+            </div>
 
           </div>
           <div class="type_msg">
             <div class=" d-flex flex-row justify-content-between">
-              <textarea type="text" rows="1" class="form-control" placeholder="پیام خود را تایپ کنید"></textarea>
-              <button class="text-dark btn btn-outline-info" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+              <textarea type="text" rows="1"  class="form-control" placeholder="پیام خود را تایپ کنید"></textarea>
+              <button class="text-dark btn btn-outline-info btn-send" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
             </div>
           </div>
         </div>
       </div>
       
       
-      <p class="text-center top_spac"> Design by <a target="_blank" href="#">Sunil Rajput</a></p>
+      
       
     </div></div>
  
