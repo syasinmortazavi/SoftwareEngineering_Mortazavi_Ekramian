@@ -1,11 +1,11 @@
 <div class="allCreatedPostByTeacher d-flex flex-column flex-lg-row flex-wrap pb-4 mt-4 ">
     <div class="col-lg-3 col-12 m-4   card rounded " *ngFor="let item of AdPosts"  (click)="AdPostClick(item.TeacherId)">
         <div class="image-container rounded ">
-            <img class="card-img-top" src="../../assets/image/{{item.Image}}" alt="image">
+            <img class="card-img-top" src="{{item.image}}" alt="image">
         </div>
             <div class="card-body">
               
-              <p class="card-text">{{item.Caption}}</p>
+              <p class="card-text">{{item.caption}}</p>
               
             </div>
     </div>

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-top-adposts',
@@ -13,21 +14,13 @@ export class TopAdpostsComponent implements OnInit {
   pianoAdPosts;
   public images=[]
   // image="../../assets/image/guitar-1.jpg"
-  constructor(private http:HttpClient,private router:Router) { }
+  constructor(private service:MainService,private router:Router) { }
 
   ngOnInit(): void {
     this.pianoAdPosts=new Object()
     this.adPosts=new Object()
     this.guitarAdPosts = new Object()
-    this.http.get("https://localhost:44342/AdPost/GetTopAdPosts").subscribe(res=>
-    {
-      this.adPosts=res;
-      this.adPosts.forEach(item => {
-        this.images.push(item.Image)
-
-        
-      });
-    })
+    
 
     this.getGuitarAdPosts()
     this.getPianoAdPosts()
@@ -45,17 +38,20 @@ export class TopAdpostsComponent implements OnInit {
 
   getGuitarAdPosts()
   {
-    this.http.get("https://localhost:44342/AdPost/GetTopAdPostsByTypeId?TypeId=1").subscribe(res=>
+    this.service.http.get(this.service.path+this.service.advertisementPath+"?tags=guitar",this.service.httpOptions).subscribe(res=>
     {
       this.guitarAdPosts=res
+      this.guitarAdPosts=this.guitarAdPosts.filter((i, index) => (index < 6))
+
     })
   }
 
   getPianoAdPosts()
   {
-    this.http.get("https://localhost:44342/AdPost/GetTopAdPostsByTypeId?TypeId=2").subscribe(res=>
+    this.service.http.get(this.service.path+this.service.advertisementPath+"?tags=piano",this.service.httpOptions).subscribe(res=>
     {
       this.pianoAdPosts=res
+      this.pianoAdPosts = this.pianoAdPosts.filter((i, index) => (index < 6))
     })
   }
 

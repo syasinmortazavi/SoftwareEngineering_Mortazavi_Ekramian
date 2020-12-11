@@ -1,5 +1,6 @@
 import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-create-adpost',
@@ -12,10 +13,11 @@ export class CreateAdpostComponent implements OnInit {
   loader=false
   selectedFile:File=null
   progress=0
-  constructor(private http:HttpClient) { }
+  constructor(private service:MainService) { }
 
   ngOnInit(): void {
     this.adPost=new Object()
+    this.adPost.tags=['guitar']
     this.message = new Object()
     
   }
@@ -26,6 +28,7 @@ export class CreateAdpostComponent implements OnInit {
     const fd = new FormData()
     fd.append('image',this.adPost.image)
     fd.append('caption',this.adPost.caption)
+    fd.append('tags',this.adPost.tags)
     console.log("adPost: "+ JSON.stringify(this.adPost));
         var headers_object = new HttpHeaders({
           // 'Content-Type': 'application/json',
@@ -37,7 +40,7 @@ export class CreateAdpostComponent implements OnInit {
           observe: 'events' as 'body'
         };
         this.loader=true
-        this.http.post("http://5.160.146.125/api/advertisement/advertisements/",fd,httpOptions).subscribe(res=>
+        this.service.http.post(this.service.path+this.service.myAdvertisementPath,fd,httpOptions).subscribe(res=>
         {
           
         this.message["msg"]="با موفقیت ایجاد شد"
@@ -73,6 +76,12 @@ export class CreateAdpostComponent implements OnInit {
     console.log(e.target.files[0])
     console.log(this.adPost.image);
     
+  }
+
+  setTag(tag)
+  {
+    this.adPost.tags=[tag]
+
   }
 
 }

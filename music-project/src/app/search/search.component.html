@@ -1,7 +1,7 @@
 <div class="d-flex flex-column justify-content-center align-items-center border-gray border-bottom pb-2 ">
 <div class="col-6 mt-4">
 <h6>دسته بندی را انتخاب کنید</h6>
-<ng-select [disabled]="searchType==2"  (click)="changeSearchTypeToCategory()" [multiple]="true" [(ngModel)]="selectedCategory">
+<ng-select [disabled]="searchType==2" placeholder="تگ مورد نظر را انتخاب کنید"  (click)="changeSearchTypeToCategory()" [multiple]="true" [(ngModel)]="selectedCategory">
     <ng-option *ngFor="let item of category" [value]="item.id">{{item.name}}</ng-option>
     
 </ng-select>
