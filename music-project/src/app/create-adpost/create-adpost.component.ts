@@ -1,5 +1,6 @@
 import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-create-adpost',
@@ -12,7 +13,7 @@ export class CreateAdpostComponent implements OnInit {
   loader=false
   selectedFile:File=null
   progress=0
-  constructor(private http:HttpClient) { }
+  constructor(private service:MainService) { }
 
   ngOnInit(): void {
     this.adPost=new Object()
@@ -39,7 +40,7 @@ export class CreateAdpostComponent implements OnInit {
           observe: 'events' as 'body'
         };
         this.loader=true
-        this.http.post("http://5.160.146.125/api/advertisement/my_advertisements/",fd,httpOptions).subscribe(res=>
+        this.service.http.post(this.service.path+this.service.myAdvertisementPath,fd,httpOptions).subscribe(res=>
         {
           
         this.message["msg"]="با موفقیت ایجاد شد"
