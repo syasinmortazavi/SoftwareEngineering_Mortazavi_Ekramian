@@ -45,6 +45,7 @@ const routes=[
   {path:"teacher",component:TeacherProfileForUserComponent},
   {path:"AllTeachers",component:AllTeachersComponent},
   {path:"search",component:SearchComponent},
+  {path:"questionnare",component:QuestionnaireComponent},
   {path:"chat",component:ChatComponent},
   {path:"profile",component:ProfileComponent,/*canActivate:[AuthGuard],*/ children:[
     {path:'',component:DetailComponent,pathMatch: 'full'},
