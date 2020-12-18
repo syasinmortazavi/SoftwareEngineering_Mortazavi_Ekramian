@@ -1,28 +1,45 @@
 <div class="container pb-4"> 
     <h2 class="text-center pt-2">پرسشنامه</h2>
     <div class="question">
-
-    <div >چه سازی را تدریس میکنید؟</div>
+    
+    <div *ngIf="type==1" >چه سازی را تدریس میکنید؟</div>
+    <div *ngIf="type==2" >به چه سازی علاقه مند هستید؟</div>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="instrument"  value="guitar" checked>
+        <input class="form-check-input" type="radio" name="instrument"  value="guitar" 
+        
+        [(ngModel)]="selectedChoice"
+        
+        (ngModelChange)="choose($event)" >
         <label class="form-check-label mr-3">
          گیتار
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="instrument"  value="piano">
+        <input class="form-check-input" type="radio" name="instrument"  value="piano"
+        
+        [(ngModel)]="selectedChoice"
+        
+        (ngModelChange)="choose($event)">
         <label class="form-check-label mr-3" >
           پیانو
         </label>
       </div>
       <div class="form-check ">
-        <input class="form-check-input" type="radio" name="instrument" value="santoor" >
+        <input class="form-check-input" type="radio" name="instrument" value="santoor" 
+        
+        [(ngModel)]="selectedChoice"
+        
+        (ngModelChange)="choose($event)">
         <label class="form-check-label mr-3" >
          سنتور
         </label>
       </div>
       <div class="form-check ">
-        <input class="form-check-input" type="radio" name="instrument"  value="others" >
+        <input class="form-check-input" type="radio" name="instrument"  value="others" 
+        
+        [(ngModel)]="selectedChoice"
+        
+        (ngModelChange)="choose($event)">
         <label class="form-check-label mr-3 ">
          بقیه موارد
         </label>
@@ -30,7 +47,8 @@
 </div>
 <div class="question">
 
-    <div >چه بازه سنی را برای تدریس ترجیح میدهید؟</div>
+    <div *ngIf="type==1" >چه بازه سنی را برای تدریس ترجیح میدهید؟</div>
+    <div *ngIf="type==2">در چه بازه سنی هستید؟</div>
     <div class="form-check">
         <input class="form-check-input" type="radio" name="age"  value="5" checked>
         <label class="form-check-label mr-3" >
@@ -65,7 +83,8 @@
 
 <div class="question">
 
-    <div >ُاز لحاظ سخت گیری چگونه استادی هستید؟</div>
+    <div *ngIf="type==1" >ُاز لحاظ سخت گیری چگونه استادی هستید؟</div>
+    <div *ngIf="type==2">دوست دارید استاد شما از لحاظ سخت گیری چگونه باشد؟</div>
     <div class="form-check">
         <input class="form-check-input" type="radio" name="question3"  value="5" checked>
         <label class="form-check-label mr-3" >
@@ -83,7 +102,8 @@
 
 <div class="question">
 
-    <div >هنرجو از نظر شما باید چقدر وقت بگذارد؟</div>
+    <div *ngIf="type==1">هنرجو از نظر شما باید چقدر وقت بگذارد؟</div>
+    <div *ngIf="type==2">در روز چقدر برای تمرین زمان اختصاص میدهید؟</div>
     <div class="form-check">
         <input class="form-check-input" type="radio" name="age"  value="5" checked>
         <label class="form-check-label mr-3" >
@@ -136,7 +156,8 @@
 
 <div class="question">
 
-    <div >ُدوست دارید هنرجوی شما در آینده نوازنده حرفه ای شود؟</div>
+    <div *ngIf="type==1" >ُدوست دارید هنرجوی شما در آینده نوازنده حرفه ای شود؟</div>
+    <div *ngIf="type==2" >ُآیا قصد حرفه ای شدن (امرار معاش) در موسیقی را دارید؟</div>
     <div class="form-check">
         <input class="form-check-input" type="radio" name="question3"  value="5" checked>
         <label class="form-check-label mr-3" >
