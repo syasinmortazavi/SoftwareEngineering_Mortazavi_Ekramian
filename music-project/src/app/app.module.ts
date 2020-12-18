@@ -35,6 +35,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 import { SearchComponent } from './search/search.component';
 import { ChatComponent } from './chat/chat.component';
+import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 
 const routes=[
   {path:"signup",component:SignupComponent},
@@ -88,7 +89,8 @@ const routes=[
     AdPostsForUserComponent,
     AllTeachersComponent,
     SearchComponent,
-    ChatComponent
+    ChatComponent,
+    QuestionnaireComponent
   ],
   imports: [
     NgSelectModule,
