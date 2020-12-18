@@ -9,30 +9,33 @@
         <div class="inbox_people">
           
           <div class="inbox_chat">
-            <div (click)="activeChat=1" class="chat_list " [ngClass]="{'active_chat':activeChat==1}">
+            <div (click)="changeChat(item)" class="chat_list p-1 " *ngFor="let item of chats">
+              <div class="p-3" [ngClass]="{'active_chat':activeChat==item}" >
               <div class="chat_people">
                 <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
                 <div class="chat_ib">
-                  <h5> تست
+                  <h5> چت شماره {{item}}
                        <!-- <span class="chat_date ">Dec 25</span> -->
                     </h5>
-                  <p>تست   </p>
+                  <p>  برای مشاهده کلیک کنید </p>
+                </div>
                 </div>
               </div>
             </div>
-            <div (click)="activeChat=2" class="chat_list" [ngClass]="{'active_chat':activeChat==2}">
+            <!-- <div (click)="activeChat=item" class="chat_list" [ngClass]="{'active_chat':activeChat==item}">
               <div class="chat_people">
                 <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
                 <div class="chat_ib">
                   <h5>تست 2
-                      <!-- <span class="chat_date">Dec 25</span> -->
+                    
                     </h5>
-                  <p class="summary">تستتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتت
-                    تتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتتت
+                  <p class="summary">
+                    سلام
+                    
                   </p>
                 </div>
               </div>
-            </div>
+            </div> -->
            
            
             
@@ -45,7 +48,7 @@
            
             <div *ngFor="let item of chatMessages ">
               <div>
-            <div class="incoming_msg" *ngIf="item.sender!=7" >
+            <div class="incoming_msg" *ngIf="item.reciever!=activeChat" >
               <div class="incoming_msg_img" > <img  src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
               <div class="received_msg" >
                 <div class="received_withd_msg" >
@@ -53,7 +56,7 @@
                   <span class="time_date">{{item.datetime.split("T")[0]}}</span></div>
               </div>
             </div>
-            <div class="outgoing_msg" *ngIf="item.sender==7" >
+            <div class="outgoing_msg" *ngIf="item.sender!=activeChat" >
               <div class="sent_msg">
                 <p>{{item.text}}</p>
                 <span class="time_date">{{item.datetime.split("T")[0]}}</span> </div>
@@ -64,7 +67,7 @@
          
             
           
-            <div class="incoming_msg">
+            <!-- <div class="incoming_msg">
               <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
               <div class="received_msg">
                 <div class="received_withd_msg">
@@ -103,7 +106,7 @@
                         ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز</p>
                   <span class="time_date"> 11:01 AM    |    Yesterday</span></div>
               </div>
-            </div>
+            </div> -->
 
           </div>
           <div class="type_msg">

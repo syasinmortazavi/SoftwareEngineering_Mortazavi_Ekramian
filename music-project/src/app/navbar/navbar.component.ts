@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { textSpanIntersectsWithPosition } from 'typescript';
 import { NavbarService } from '../navbar.service';
 
 @Component({
@@ -28,6 +29,15 @@ export class NavbarComponent implements OnInit {
     this.navservice.messageForLogin.next(null);
     localStorage.removeItem("token")
     this.route.navigateByUrl('/login')
+  }
+
+  
+
+  goToChat()
+  {
+    localStorage.removeItem("currentChatEmail")
+    localStorage.removeItem("currentChatId")
+    this.route.navigateByUrl("chat")
   }
   
 
