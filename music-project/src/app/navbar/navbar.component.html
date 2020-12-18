@@ -6,6 +6,6 @@
     
     <a  class="nav-link" routerLink="AllTeachers">مشاهده اساتید</a>
     <a  class="nav-link" routerLink="search">جست و جو</a>
-    <a  class="nav-link" routerLink="chat"> چت</a>
+    <a  class="nav-link" (click)="goToChat()" routerLink="chat"> چت</a>
     <button (click)="logout()" *ngIf="login" class="btn btn-outline-dark btn-sm">خروج</button>
 </div>
