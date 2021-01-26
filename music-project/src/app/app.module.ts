@@ -36,6 +36,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { SearchComponent } from './search/search.component';
 import { ChatComponent } from './chat/chat.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
+import { QresultComponent } from './qresult/qresult.component';
 
 const routes=[
   {path:"signup",component:SignupComponent},
@@ -91,7 +92,8 @@ const routes=[
     AllTeachersComponent,
     SearchComponent,
     ChatComponent,
-    QuestionnaireComponent
+    QuestionnaireComponent,
+    QresultComponent
   ],
   imports: [
     NgSelectModule,

@@ -154,7 +154,7 @@
    
 </div>
 
-<div class="question">
+<div class="question pb-4">
 
     <div *ngIf="type==1" >ُدوست دارید هنرجوی شما در آینده نوازنده حرفه ای شود؟</div>
     <div *ngIf="type==2" >ُآیا قصد حرفه ای شدن (امرار معاش) در موسیقی را دارید؟</div>
@@ -170,7 +170,13 @@
           خیر
         </label>
       </div>
+
+
+
    
+</div>
+<div class="col-12 d-flex justify-content-center align-items-center">
+<div class="btn btn-success col-10 mt-2 mb-4" (click)="sendQuestionnaireData()">ثبت</div>
 </div>
 
 

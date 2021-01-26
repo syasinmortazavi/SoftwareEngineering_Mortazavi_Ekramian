@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class QuestionnaireComponent implements OnInit {
   defaultChoice="guitar"
   selectedChoice="guitar"
-  type=1
+  type=2
 
   constructor() { }
 
@@ -23,6 +23,12 @@ export class QuestionnaireComponent implements OnInit {
     
     this.selectedChoice = e
     console.log(e)
+    
+  }
+
+  sendQuestionnaireData()
+  {
+    console.log("selectedChoice: ",this.selectedChoice);
     
   }
 
