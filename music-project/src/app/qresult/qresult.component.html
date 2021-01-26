@@ -1,1 +1,19 @@
-<p>qresult works!</p>
+<div class="d-flex flex-column flex-lg-row justify-content-start flex-wrap">
+    <div class="col-lg-2 col-12 m-4   card rounded " *ngFor="let item of teachers" (click)="teacherProfile(item.Id)">
+        <div class="image-container rounded   ">
+            <img class="card-img-top" src="../../assets/image/default-user.svg" alt="image">
+        </div>
+            <div class="card-body d-flex flex-column p-4">
+            <div>نام:{{item.name}}</div>
+            <div class="Email_">ایمیل:{{item.email}}</div>
+              
+              
+              
+            </div>
+            <div class="border-top border-gray pb-2 col-12 row pt-2 flex-column">
+                <div>بیوگرافی:</div>
+               <div> {{item.biography}}</div>
+                
+            </div>
+    </div>
+</div>
