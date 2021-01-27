@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./questionnaire.component.css']
 })
 export class QuestionnaireComponent implements OnInit {
-  defaultChoice="guitar"
-  selectedChoice="guitar"
+  
+  selectedChoice=["1","1","1","1","1","1"]
   type=2
 
   constructor() { }
@@ -17,11 +17,11 @@ export class QuestionnaireComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  choose(e)
+  choose(e,questionNumber)
   {
     console.log("*************************");
     
-    this.selectedChoice = e
+    this.selectedChoice[questionNumber] = e
     console.log(e)
     
   }
