@@ -2,18 +2,18 @@
 <div class="d-flex flex-column bg-gray flex-lg-row col-12 p-0 justify-content-center mt-2 rounded teacher-container ">
     <div class="teacher-information d-flex flex-column flex-lg-row  col-4">
         <div class=" rounded-circle  col-5   teacherImage">
-          <img  src="../../assets/image/{{teacher.Image}}.svg" alt="">
+          <img  src="../../assets/image/{{teacher.image}}.svg" alt="">
         </div>
         <div class="d-flex flex-column col-7 information-body p-3 pt-4">
-            <div>نام:{{teacher.Name}}</div>
-            <div>ایمیل:{{teacher.Email}}</div>
+            <div>نام:{{teacher.name}}</div>
+            <div>ایمیل:{{teacher.email}}</div>
             
             
         </div>
     </div>
     <div class="biography d-flex flex-column col-8 border-right border-gray pt-3">
       <h3>بیوگرافی</h3>
-      <div class="mt-1">{{teacher.Bio}}</div>
+      <div class="mt-1">{{teacher.biography}}</div>
       
     </div>
 </div>
@@ -21,7 +21,7 @@
 <div class="allCreatedPostByTeacher d-flex flex-column flex-lg-row flex-wrap pb-4 mt-4 ">
 <div class="col-lg-3 col-12 m-4   card rounded " *ngFor="let item of AdPosts">
     <div class="image-container rounded ">
-        <img class="card-img-top" src="../../assets/image/{{item.Image}}" alt="image">
+        <img class="card-img-top" src="../../assets/image/{{item.image}}" alt="image">
     </div>
         <div class="card-body">
           
