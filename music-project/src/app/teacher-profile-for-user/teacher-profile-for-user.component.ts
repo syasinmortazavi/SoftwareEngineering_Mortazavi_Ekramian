@@ -53,7 +53,7 @@ export class TeacherProfileForUserComponent implements OnInit {
 
   getTeacherAdPost()
   {
-    this.http.get("https://localhost:44342/AdPost/GetAllAdPostByTeacherId?Id="+localStorage.getItem("AdPostTeacherId")).subscribe
+    this.http.get(this.service.path+this.service.advertisementPath+"?user="+localStorage.getItem("AdPostTeacherId"),this.service.httpOptions).subscribe
     (
       res=>
       {
