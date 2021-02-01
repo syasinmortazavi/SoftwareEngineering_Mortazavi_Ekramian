@@ -35,6 +35,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 import { SearchComponent } from './search/search.component';
 import { ChatComponent } from './chat/chat.component';
+import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
+import { QresultComponent } from './qresult/qresult.component';
 
 const routes=[
   {path:"signup",component:SignupComponent},
@@ -44,6 +46,7 @@ const routes=[
   {path:"teacher",component:TeacherProfileForUserComponent},
   {path:"AllTeachers",component:AllTeachersComponent},
   {path:"search",component:SearchComponent},
+  {path:"questionnare",component:QuestionnaireComponent},
   {path:"chat",component:ChatComponent},
   {path:"profile",component:ProfileComponent,/*canActivate:[AuthGuard],*/ children:[
     {path:'',component:DetailComponent,pathMatch: 'full'},
@@ -88,7 +91,9 @@ const routes=[
     AdPostsForUserComponent,
     AllTeachersComponent,
     SearchComponent,
-    ChatComponent
+    ChatComponent,
+    QuestionnaireComponent,
+    QresultComponent
   ],
   imports: [
     NgSelectModule,

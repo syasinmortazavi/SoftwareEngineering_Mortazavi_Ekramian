@@ -1,5 +1,5 @@
 <div class="d-flex flex-column flex-lg-row justify-content-start flex-wrap">
-    <div class="col-lg-2 col-12 m-4   card rounded " *ngFor="let item of teachers" (click)="teacherProfile(item.id)">
+    <div class="col-lg-2 col-12 m-4   card rounded " *ngFor="let item of teachers" (click)="teacherProfile(item.Id)">
         <div class="image-container rounded   ">
             <img class="card-img-top" src="../../assets/image/default-user.svg" alt="image">
         </div>
@@ -13,8 +13,7 @@
             <div class="border-top border-gray pb-2 col-12 row pt-2 flex-column">
                 <div>بیوگرافی:</div>
                <div> {{item.biography}}</div>
-                <!-- <div  class="btn btn-info mt-1 mb-2" (click)="teacherProfile(item.Id)">مشاهده پروفایل</div> -->
-                <!-- <div class="btn btn-warning" (click)="goToChat(item.email,item.id)">گفت و گو</div> -->
+                
             </div>
     </div>
 </div>

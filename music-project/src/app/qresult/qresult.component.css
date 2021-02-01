@@ -1,0 +1,19 @@
+img
+{
+    height: 200px !important;
+
+}
+.card:hover
+{
+    cursor: pointer;
+    
+}
+
+.image-container
+{
+    border-radius: 1000px !important;
+}
+.Email_
+{
+    height: 50px !important;
+}
