@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-teacher-profile-for-user',
@@ -17,7 +18,7 @@ export class TeacherProfileForUserComponent implements OnInit {
   message=null
   
   //'../../assets/image/download.jpg'
-  constructor(private http:HttpClient,private service:MainService) { }
+  constructor(private http:HttpClient,private service:MainService,private router:Router) { }
 
   ngOnInit(): void {
     this.comments=new Object()
@@ -60,6 +61,12 @@ export class TeacherProfileForUserComponent implements OnInit {
         this.AdPosts=res
       }
     )
+  }
+
+  moveToChat(id)
+  {
+    localStorage.setItem("currentChatId",id);
+    this.router.navigateByUrl("chat")
   }
 
   getComments()
