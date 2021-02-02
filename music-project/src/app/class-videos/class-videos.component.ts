@@ -11,7 +11,7 @@ export class ClassVideosComponent implements OnInit {
   
 
   
-  comment="";
+  comment;
   guitar= '../../assets/image/download.jpg'
   selectedVideo;
   classId;
@@ -21,14 +21,17 @@ export class ClassVideosComponent implements OnInit {
   tutorials=[]
   httpOptions;
   commentList=[];
+  comments;
   
   constructor(private http:HttpClient,private elRef: ElementRef) { }
 
   ngOnInit(): void {
     
     this.classId=localStorage.getItem("classId")
-    
+    this.comment=new Object()
+    this.comments=new Object()
     this.message = new Object()
+    this.message = null;
     this.class=new Object()
     
 
@@ -91,14 +94,15 @@ export class ClassVideosComponent implements OnInit {
     player.load();
   }
 
-  addComment()
+  addComments()
   {
-    var commentObj = new Object()
-    commentObj["text"] = this.comment
-    commentObj["classroom"] = this.classId
-    this.http.post("http://5.160.146.125/api/classroom/comments/",commentObj,this.httpOptions).subscribe(res=>
+    
+    
+    this.comment["classroom"] = this.classId
+    this.http.post("http://5.160.146.125/api/classroom/comments/",this.comment,this.httpOptions).subscribe(res=>
     {
       console.log("ooooooooooooooomad: "+res);
+      this.message="با موفقیت ثبت شد"
     })
 
   }
