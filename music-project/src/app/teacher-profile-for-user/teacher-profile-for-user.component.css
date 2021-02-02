@@ -10,6 +10,10 @@
     padding: 10px;
 
 }
+.chat_btn 
+{
+    width: 50%;
+}
 img
 {
     height: 300px;

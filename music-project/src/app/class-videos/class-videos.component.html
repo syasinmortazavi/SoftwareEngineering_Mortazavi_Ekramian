@@ -37,14 +37,17 @@
 </table>
 
 
-<!-- <div class="mt-4 commentsContainer">
-
 <h2 >دیدگاه:</h2>
 
+  <div class="alert alert-success d-flex align-items-center justify-content-between flex-row col-10 mr-2" *ngIf="message!=null">
+    <div>{{message}}</div>
+    <div class="btn btn-outline-dark " (click)="message=null">بستن</div>
 
+
+  </div>
   <div class="row mr-4 mb-4"> 
   <div class="col-10 d-flex flex-column">
-  <input name="fullname" class="form-control  " [(ngModel)]="comment"
+  <input name="fullname" class="form-control  " [(ngModel)]="comment.text"
   placeholder="لطفا نظر خود راجع به کلاس را وارد کنید"
   #comment_="ngModel"
   required
@@ -54,21 +57,19 @@
   <span class=" col-12 text-right bg-danger border-top p-2 text-white" 
   *ngIf="!comment_.valid && comment_.touched ">لطفا این قسمت را پر کنید</span>
 </div>
-  <button class="btn btn-send-comment btn-success btn-sm mr-1 " (click)="addComment()">ارسال</button>
+  <button [disabled]="!comment_.valid" (click)="addComments()" class="btn btn-send-comment btn-success btn-sm mr-1 ">ارسال</button>
 </div>
-<div class="comment rounded bg-light d-flex flex-column p-1  mb-2 col-10 " *ngFor="let item of ">
-  <div class="title mr-3 mt-2">18 آبان </div>
+<div class="comment rounded bg-light d-flex flex-column p-1 mr-2  mb-2 col-10 " *ngFor="let item of comments">
+ 
   <div class="d-flex justify-content-between flex-row p-4">
   <div class="comment-message col-8">
-    عالی بود
+    {{item.text}}
   </div>
-  <div class="col-3 d-flex flex-row ">
-      <div class="m-1 row"><small>2+</small><i class="fa mr-1 fa-thumbs-up"></i></div>
-      <div class="m-1 row"><small>2-</small><i class="fa mr-1 fa-thumbs-down"></i></div>
-  </div>
+  
 </div>
 
 </div>
 
-</div>-->
-</div> 
+</div>
+
+ 

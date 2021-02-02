@@ -3,6 +3,7 @@ import { MainService } from '../main.service';
 import { interval } from 'rxjs';
 import { textSpanIntersectsWithPosition } from 'typescript';
 import { CompileShallowModuleMetadata } from '@angular/compiler';
+import { HttpHeaders } from '@angular/common/http';
 
 
 @Component({
@@ -37,17 +38,7 @@ export class ChatComponent implements OnInit {
     this.chatMessages=new Object()
     this.chatMessages=null
     // this.message.reciever="teacher@gmail.com"
-    if(localStorage.getItem("currentChatEmail")==null || localStorage.getItem("currentChatEmail")==undefined )
-    {
-      console.log("null");
-      
-    }
-    else
-    {
-      this.message.reciever=localStorage.getItem
-      this.chats.push(localStorage.getItem("currentChatId"))
-      this.activeChat=parseInt(localStorage.getItem("currentChatId"))
-    }
+    
     this.service.http.get(this.service.path+"classroom/teachers",this.service.httpOptions).subscribe(res=>
       {
         this.teachers=res
@@ -72,6 +63,9 @@ export class ChatComponent implements OnInit {
 
   sendMessage()
   {
+    console.log("activeChat: ",this.activeChat);
+    this.message.reciever=this.activeChat
+    
       this.service.http.post(this.service.path+"messages/my_messages/",this.message,this.service.httpOptions).subscribe(res=>
         {
           this.message.reciever=this.activeChat
@@ -91,10 +85,19 @@ export class ChatComponent implements OnInit {
 
   getChats()
   {
+    
+    
     this.service.http.get(this.service.path+"messages/my_chats",this.service.httpOptions).subscribe(res=>
       {
         this.chats=res["interactors"]
         this.activeChat=this.chats[0]
+        if (localStorage.getItem("currentChatId")!=null && localStorage.getItem("currentChatId")!=undefined)
+        {
+          this.chats.push(localStorage.getItem("currentChatId"))
+          this.activeChat=parseInt(localStorage.getItem("currentChatId"))
+          this.message.reciever=parseInt(localStorage.getItem("currentChatId"))
+        }
+        
 
       })
   }
