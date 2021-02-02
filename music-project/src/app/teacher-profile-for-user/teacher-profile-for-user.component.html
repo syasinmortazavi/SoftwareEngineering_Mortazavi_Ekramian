@@ -8,7 +8,7 @@
             <div>نام:{{teacher.name}}</div>
             <div>ایمیل:{{teacher.email}}</div>
 
-            <div class="btn btn-primary mt-4 chat_btn">شروع چت</div>
+            <div class="btn btn-primary mt-4 chat_btn" (click)="moveToChat(teacher.id)">شروع چت</div>
             
             
         </div>

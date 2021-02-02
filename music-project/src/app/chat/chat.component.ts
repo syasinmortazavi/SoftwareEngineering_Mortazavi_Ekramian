@@ -37,15 +37,17 @@ export class ChatComponent implements OnInit {
     this.chatMessages=new Object()
     this.chatMessages=null
     // this.message.reciever="teacher@gmail.com"
-    if(localStorage.getItem("currentChatEmail")==null || localStorage.getItem("currentChatEmail")==undefined )
+    if(localStorage.getItem("currentChatId")==null || localStorage.getItem("currentChatId")==undefined )
     {
       console.log("null");
       
     }
     else
     {
-      this.message.reciever=localStorage.getItem
-      this.chats.push(localStorage.getItem("currentChatId"))
+      //this.message.reciever=localStorage.getItem
+      
+      
+      console.log("chats: ",this.chats)
       this.activeChat=parseInt(localStorage.getItem("currentChatId"))
     }
     this.service.http.get(this.service.path+"classroom/teachers",this.service.httpOptions).subscribe(res=>
@@ -95,6 +97,7 @@ export class ChatComponent implements OnInit {
       {
         this.chats=res["interactors"]
         this.activeChat=this.chats[0]
+        this.chats.push(localStorage.getItem("currentChatId"))
 
       })
   }
