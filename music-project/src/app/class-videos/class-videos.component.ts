@@ -31,6 +31,7 @@ export class ClassVideosComponent implements OnInit {
     this.comment=new Object()
     this.comments=new Object()
     this.message = new Object()
+    this.getComments()
     this.message = null;
     this.class=new Object()
     
@@ -105,6 +106,15 @@ export class ClassVideosComponent implements OnInit {
       this.message="با موفقیت ثبت شد"
     })
 
+  }
+
+  getComments()
+  {
+    this.http.get("http://5.160.146.125/api/classroom/comments/"+this.classId,this.httpOptions).subscribe(res=>
+    {
+      this.comments=res;
+      
+    })
   }
 
  
