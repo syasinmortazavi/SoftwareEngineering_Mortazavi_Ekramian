@@ -21,7 +21,7 @@ export class ClassVideosComponent implements OnInit {
   tutorials=[]
   httpOptions;
   commentList=[];
-  comments;
+  comments=[];
   
   constructor(private http:HttpClient,private elRef: ElementRef) { }
 
@@ -29,9 +29,9 @@ export class ClassVideosComponent implements OnInit {
     
     this.classId=localStorage.getItem("classId")
     this.comment=new Object()
-    this.comments=new Object()
+    
     this.message = new Object()
-    this.getComments()
+    
     this.message = null;
     this.class=new Object()
     
@@ -49,6 +49,7 @@ export class ClassVideosComponent implements OnInit {
         this.http.get("http://5.160.146.125/api/classroom/classrooms/"+this.classId,this.httpOptions).subscribe(res=>
         {
         this.class=res
+        this.getComments()
      
       
         
@@ -110,11 +111,18 @@ export class ClassVideosComponent implements OnInit {
 
   getComments()
   {
-    this.http.get("http://5.160.146.125/api/classroom/comments/"+this.classId,this.httpOptions).subscribe(res=>
+
+    this.class.comments.forEach(element => {
+
+      
+    
+
+    this.http.get(element,this.httpOptions).subscribe(res=>
     {
-      this.comments=res;
+      this.comments.push(res);
       
     })
+  });
   }
 
  
