@@ -3,6 +3,7 @@ import { MainService } from '../main.service';
 import { interval } from 'rxjs';
 import { textSpanIntersectsWithPosition } from 'typescript';
 import { CompileShallowModuleMetadata } from '@angular/compiler';
+import { HttpHeaders } from '@angular/common/http';
 
 
 @Component({
@@ -62,6 +63,9 @@ export class ChatComponent implements OnInit {
 
   sendMessage()
   {
+    console.log("activeChat: ",this.activeChat);
+    this.message.reciever=this.activeChat
+    
       this.service.http.post(this.service.path+"messages/my_messages/",this.message,this.service.httpOptions).subscribe(res=>
         {
           this.message.reciever=this.activeChat
@@ -81,6 +85,8 @@ export class ChatComponent implements OnInit {
 
   getChats()
   {
+    
+    
     this.service.http.get(this.service.path+"messages/my_chats",this.service.httpOptions).subscribe(res=>
       {
         this.chats=res["interactors"]
@@ -89,6 +95,7 @@ export class ChatComponent implements OnInit {
         {
           this.chats.push(localStorage.getItem("currentChatId"))
           this.activeChat=parseInt(localStorage.getItem("currentChatId"))
+          this.message.reciever=parseInt(localStorage.getItem("currentChatId"))
         }
         
 
