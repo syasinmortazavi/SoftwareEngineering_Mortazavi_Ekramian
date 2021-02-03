@@ -4,6 +4,10 @@
 
 <div class="container">
 <h3 class=" text-center">چت</h3>
+<div  *ngIf="alert!=null" class="alert alert-danger d-flex flex-row justify-content-between align-items-center col-12 ">
+  <div>خطا در ارسال پیام</div>
+  <div class="btn btn-outline-dark" (click)="alert=null">بستن</div>
+</div>
 <div class="messaging rounded">
       <div class="inbox_msg rounded">
         <div class="inbox_people">

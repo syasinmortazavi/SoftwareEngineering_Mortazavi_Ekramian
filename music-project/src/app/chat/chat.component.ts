@@ -21,6 +21,7 @@ export class ChatComponent implements OnInit {
   teachers;
   interval;
   httpOptions;
+  alert=null;
   constructor(private service:MainService) { }
   
 
@@ -85,7 +86,12 @@ export class ChatComponent implements OnInit {
         {
           this.message.reciever=this.activeChat
             this.getMessages()
-        })
+        },
+        err=>
+      {
+        
+        this.alert="خطا در ارسال پیام"
+      })
   }
 
   getMessages()

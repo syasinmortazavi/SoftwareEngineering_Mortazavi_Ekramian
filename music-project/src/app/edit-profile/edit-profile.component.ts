@@ -18,13 +18,7 @@ export class EditProfileComponent implements OnInit {
   ngOnInit(): void {
     this.user_=new Object()
     this.message=new Object()
-    var headers_object = new HttpHeaders({
-      'Content-Type': 'application/json',
-       'Authorization': "Token "+localStorage.getItem("token")
-    });
-     this.httpOptions = {
-      headers: headers_object
-    };
+    
     this.loader=true;
     this.http.get("http://5.160.146.125/api/user/me/",this.service.httpOptions).subscribe(
       res=>
