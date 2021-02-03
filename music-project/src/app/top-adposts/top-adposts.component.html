@@ -7,7 +7,7 @@
 
 <div class="d-flex flex-row justify-content-between align-items-center top-post-items p-4  overflow-hidden">
     
-        <div class="card col-6 col-lg-2 mr-2 ml-2 shadow-lg " *ngFor="let item of adPosts;let i=index" (click)="AdPostClick(item.TeacherId)">
+        <div class="card col-6 col-lg-2 mr-2 ml-2 shadow-lg " *ngFor="let item of adPosts;let i=index" (click)="AdPostClick(item.user)">
           <img class="card-img-top" src="{{item.image}}" alt="Card image cap">
           <div class="card-body">
             
@@ -27,7 +27,7 @@
 
 <div class="d-flex flex-row justify-content-start align-items-center top-post-items p-4  overflow-hidden">
   
-      <div class="card col-6 col-lg-2 mr-4 ml-4 " *ngFor="let item of guitarAdPosts;let i=index" (click)="AdPostClick(item.TeacherId)">
+      <div class="card col-6 col-lg-2 mr-4 ml-4 " *ngFor="let item of guitarAdPosts;let i=index" (click)="AdPostClick(item.user)">
         <img class="card-img-top" src="{{item.image}}" alt="Card image cap">
         <div class="card-body">
          
@@ -48,7 +48,7 @@
 
 <div class="d-flex flex-row justify-content-start align-items-center top-post-items p-4  overflow-hidden">
   
-      <div class="card col-6 col-lg-2 mr-4 ml-4 " *ngFor="let item of pianoAdPosts;let i=index" (click)="AdPostClick(item.TeacherId)">
+      <div class="card col-6 col-lg-2 mr-4 ml-4 " *ngFor="let item of pianoAdPosts;let i=index" (click)="AdPostClick(item.user)">
         <img class="card-img-top" src="{{item.image}}" alt="Card image cap">
         <div class="card-body">
          

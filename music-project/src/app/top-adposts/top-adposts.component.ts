@@ -32,6 +32,8 @@ export class TopAdpostsComponent implements OnInit {
   }
   AdPostClick(Id)
   {
+    console.log("AdPostClickId: "+Id);
+    
     localStorage.setItem("AdPostTeacherId",Id)
     this.router.navigateByUrl("teacher")
   }

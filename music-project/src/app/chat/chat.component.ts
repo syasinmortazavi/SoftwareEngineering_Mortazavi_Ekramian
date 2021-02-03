@@ -19,7 +19,9 @@ export class ChatComponent implements OnInit {
   currentChat=null
   myId=null
   teachers;
-  interval
+  interval;
+  httpOptions;
+  alert=null;
   constructor(private service:MainService) { }
   
 
@@ -28,6 +30,17 @@ export class ChatComponent implements OnInit {
       {
 
       })
+
+      var headers_object = new HttpHeaders({
+        // 'Content-Type': 'application/json',
+         'Authorization': "Token "+localStorage.getItem("token")
+      });
+
+      this.httpOptions = {
+        headers: headers_object
+      };
+  
+      console.log("Token: "+localStorage.getItem("token"));
     this.teachers = new Object()
     this.chats=[]
     this.getChats()
@@ -37,26 +50,29 @@ export class ChatComponent implements OnInit {
     this.message.Text=''
     this.chatMessages=new Object()
     this.chatMessages=null
+    
+     
+    
     // this.message.reciever="teacher@gmail.com"
     
-    this.service.http.get(this.service.path+"classroom/teachers",this.service.httpOptions).subscribe(res=>
-      {
-        this.teachers=res
+    // this.service.http.get(this.service.path+"classroom/teachers",this.service.httpOptions).subscribe(res=>
+    //   {
+    //     this.teachers=res
         
 
-        this.teachers.forEach(element => {
+    //     this.teachers.forEach(element => {
           
-          if(element.id==this.activeChat)
-          {
-            // localStorage.setItem("currentChatEmail",element.email)
-            this.message.reciever=element.email
-            console.log(
-            this.message.Reviever);
+    //       if(element.id==this.activeChat)
+    //       {
+    //         // localStorage.setItem("currentChatEmail",element.email)
+    //         this.message.reciever=element.email
+    //         console.log(
+    //         this.message.Reviever);
             
-          }
+    //       }
           
-        });
-      })
+    //     });
+    //   })
       // this.message.reciever="teacher@gmail.com"
       // this.activeChat=2
   }
@@ -70,7 +86,12 @@ export class ChatComponent implements OnInit {
         {
           this.message.reciever=this.activeChat
             this.getMessages()
-        })
+        },
+        err=>
+      {
+        
+        this.alert="خطا در ارسال پیام"
+      })
   }
 
   getMessages()
@@ -87,7 +108,7 @@ export class ChatComponent implements OnInit {
   {
     
     
-    this.service.http.get(this.service.path+"messages/my_chats",this.service.httpOptions).subscribe(res=>
+    this.service.http.get(this.service.path+"messages/my_chats",this.httpOptions).subscribe(res=>
       {
         this.chats=res["interactors"]
         this.activeChat=this.chats[0]
