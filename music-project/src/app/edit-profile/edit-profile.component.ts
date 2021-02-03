@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -12,7 +13,7 @@ export class EditProfileComponent implements OnInit {
   message;
   loader=false;
   ConfirmPassword
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private service:MainService) { }
 
   ngOnInit(): void {
     this.user_=new Object()
@@ -25,7 +26,7 @@ export class EditProfileComponent implements OnInit {
       headers: headers_object
     };
     this.loader=true;
-    this.http.get("http://5.160.146.125/api/user/me/",this.httpOptions).subscribe(
+    this.http.get("http://5.160.146.125/api/user/me/",this.service.httpOptions).subscribe(
       res=>
       {
         this.user_=res;
@@ -41,7 +42,7 @@ export class EditProfileComponent implements OnInit {
   editProfile()
   {
     this.loader=true
-    this.http.put("http://5.160.146.125/api/user/me/",this.user_,this.httpOptions).subscribe
+    this.http.put("http://5.160.146.125/api/user/me/",this.user_,this.service.httpOptions).subscribe
     (res=>
       {
         this.loader=false
