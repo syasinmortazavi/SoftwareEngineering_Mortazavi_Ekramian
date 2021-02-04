@@ -9,6 +9,8 @@ export class MainService {
   public advertisementPath="advertisement/advertisements/"
   public myAdvertisementPath="advertisement/my_advertisements/"
   public classroomPath="classroom/classrooms/"
+  public commentPath="classroom/comments/"
+  public myClassroomsPath="classroom/my_classrooms/"
   public httpOptions
   constructor(public http:HttpClient) {
     var headers_object = new HttpHeaders({
