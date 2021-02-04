@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-created-video',
@@ -12,7 +13,7 @@ export class CreatedVideoComponent implements OnInit {
   class;
   message
   tutorials=[]
-  constructor(private http:HttpClient,private route:Router) { }
+  constructor(private http:HttpClient,private route:Router,private service:MainService) { }
 
   classVideos(id)
   {
@@ -41,7 +42,7 @@ export class CreatedVideoComponent implements OnInit {
           
         };
         
-        this.http.get("http://5.160.146.125/api/classroom/my_classrooms/",httpOptions).subscribe(res=>
+        this.http.get(this.service.path+this.service.myClassroomsPath,httpOptions).subscribe(res=>
         {
         this.class=res
      
