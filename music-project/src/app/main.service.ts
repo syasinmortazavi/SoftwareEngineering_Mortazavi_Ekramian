@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class MainService {
   public path="http://5.160.146.125/api/"
+  public editProfilePath="user/me/"
   public advertisementPath="advertisement/advertisements/"
   public myAdvertisementPath="advertisement/my_advertisements/"
   public classroomPath="classroom/classrooms/"
