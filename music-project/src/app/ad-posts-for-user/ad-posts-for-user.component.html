@@ -1,5 +1,5 @@
 <div class="allCreatedPostByTeacher d-flex flex-column flex-lg-row flex-wrap pb-4 mt-4 ">
-    <div class="col-lg-3 col-12 m-4   card rounded " *ngFor="let item of AdPosts"  (click)="AdPostClick(item.TeacherId)">
+    <div class="col-lg-3 col-12 m-4   card rounded " *ngFor="let item of AdPosts"  (click)="AdPostClick(item.user)">
         <div class="image-container rounded ">
             <img class="card-img-top" src="{{item.image}}" alt="image">
         </div>
@@ -9,5 +9,7 @@
               
             </div>
     </div>
+
+    <div *ngIf="AdPosts.length==0" class="text-center col-12">پستی برای این دسته بندی پیدا نشد</div>
     
     </div>
