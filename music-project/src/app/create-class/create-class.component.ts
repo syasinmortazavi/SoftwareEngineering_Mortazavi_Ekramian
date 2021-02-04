@@ -1,5 +1,6 @@
 import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-create-class',
@@ -12,7 +13,7 @@ selectedFile=null;
 loader=false;
 message;
 progress=0
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private service:MainService) { }
 
   fileChangeEvent(e)
   {
@@ -35,7 +36,7 @@ progress=0
           
         };
         this.loader=true
-        this.http.post("http://5.160.146.125/api/classroom/classrooms/",this.class,httpOptions).subscribe(res=>
+        this.http.post(this.service.path+this.service.myClassroomsPath,this.class,httpOptions).subscribe(res=>
         {
           
         this.message["msg"]="با موفقیت ایجاد شد"

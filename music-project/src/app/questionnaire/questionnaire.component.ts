@@ -28,7 +28,12 @@ export class QuestionnaireComponent implements OnInit {
 
   sendQuestionnaireData()
   {
-    console.log("selectedChoice: ",this.selectedChoice);
+    var answers="";
+    this.selectedChoice.forEach(element => {
+      answers+=element
+      
+    });
+    
     
   }
 
