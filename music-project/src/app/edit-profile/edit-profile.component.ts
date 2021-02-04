@@ -16,11 +16,19 @@ export class EditProfileComponent implements OnInit {
   constructor(private http:HttpClient,private service:MainService) { }
 
   ngOnInit(): void {
+    var headers_object = new HttpHeaders({
+      // 'Content-Type': 'application/json',
+       'Authorization': "Token "+localStorage.getItem("token")
+    });
+
+    this.httpOptions = {
+      headers: headers_object
+    };
     this.user_=new Object()
     this.message=new Object()
     
     this.loader=true;
-    this.http.get("http://5.160.146.125/api/user/me/",this.service.httpOptions).subscribe(
+    this.http.get("http://5.160.146.125/api/user/me/",this.httpOptions).subscribe(
       res=>
       {
         this.user_=res;
@@ -36,7 +44,7 @@ export class EditProfileComponent implements OnInit {
   editProfile()
   {
     this.loader=true
-    this.http.put("http://5.160.146.125/api/user/me/",this.user_,this.service.httpOptions).subscribe
+    this.http.put("http://5.160.146.125/api/user/me/",this.user_,this.httpOptions).subscribe
     (res=>
       {
         this.loader=false

@@ -1,5 +1,6 @@
 import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-upload-video',
@@ -16,7 +17,7 @@ export class UploadVideoComponent implements OnInit {
   progress;
   ;
   selectedFile:File=null
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private service:MainService) { }
 
   ngOnInit(): void {
     this.video=new Object()
@@ -33,7 +34,7 @@ export class UploadVideoComponent implements OnInit {
           
         };
         this.loader=true
-        this.http.get("http://5.160.146.125/api/classroom/classrooms/",httpOptions).subscribe(res=>
+        this.http.get(this.service.path+this.service.myClassroomsPath,httpOptions).subscribe(res=>
         {
         this.class=res
        

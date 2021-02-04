@@ -82,7 +82,7 @@ export class ChatComponent implements OnInit {
     console.log("activeChat: ",this.activeChat);
     this.message.reciever=this.activeChat
     
-      this.service.http.post(this.service.path+"messages/my_messages/",this.message,this.service.httpOptions).subscribe(res=>
+      this.service.http.post(this.service.path+"messages/my_messages/",this.message,this.httpOptions).subscribe(res=>
         {
           this.message.reciever=this.activeChat
             this.getMessages()
@@ -96,7 +96,7 @@ export class ChatComponent implements OnInit {
 
   getMessages()
   {
-    this.service.http.get(this.service.path+"messages/my_messages/?user="+this.activeChat,this.service.httpOptions).subscribe(res=>
+    this.service.http.get(this.service.path+"messages/my_messages/?user="+this.activeChat,this.httpOptions).subscribe(res=>
       {
           
           this.chatMessages=res;
