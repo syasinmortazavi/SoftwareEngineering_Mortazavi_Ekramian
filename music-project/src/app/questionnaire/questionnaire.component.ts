@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
+import { MainService } from '../main.service';
 @Component({
   selector: 'app-questionnaire',
   templateUrl: './questionnaire.component.html',
@@ -7,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionnaireComponent implements OnInit {
   
-  selectedChoice=["1","1","1","1","1","1"]
-  type=2
+  selectedChoice=["1","1","1","1","1"]
+  alert=null
 
-  constructor() { }
+  constructor(private http:HttpClient,private service:MainService) { }
 
   
 
@@ -32,7 +33,25 @@ export class QuestionnaireComponent implements OnInit {
     this.selectedChoice.forEach(element => {
       answers+=element
       
+      
     });
+    var headers_object = new HttpHeaders({
+       'Content-Type': 'application/json',
+       'Authorization': "Token "+localStorage.getItem("token")
+    });
+    const httpOptions = {
+      headers: headers_object,
+      
+    };
+    var answer = new Object()
+    answer["answer"] = answers
+
+    this.http.put(this.service.path+"question/my_answer/",JSON.stringify(answer),httpOptions).subscribe(res=>
+      {
+        this.alert="با موفقیت ثبت شد"
+      })
+    console.log("answers: "+answers);
+    
     
     
   }
