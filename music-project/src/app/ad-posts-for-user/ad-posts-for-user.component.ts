@@ -31,23 +31,14 @@ export class AdPostsForUserComponent implements OnInit {
     }
     if(this.typeId!=null)
     {
-    this.service.http.get("https://localhost:44342/AdPost/GetAllAdPostsByTypeId?TypeId="+localStorage.getItem("categoryId")).subscribe(res=>
-      {
-        this.AdPosts=res
-      })
+    
     this.service.http.get(this.service.path+this.service.advertisementPath+"?tags="+localStorage.getItem("categoryId"),this.httpOptions).subscribe(res=>
       {
         this.AdPosts=res
       })
     
   }
-  else
-  {
-    this.service.http.get("https://localhost:44342/AdPost/GetAllAdPosts").subscribe(res=>
-      {
-        this.AdPosts=res
-      })
-  }
+  
   
 }
 
