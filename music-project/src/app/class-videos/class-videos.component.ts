@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-class-videos',
@@ -23,7 +24,7 @@ export class ClassVideosComponent implements OnInit {
   commentList=[];
   comments=[];
   
-  constructor(private http:HttpClient,private elRef: ElementRef) { }
+  constructor(private http:HttpClient,private elRef: ElementRef,private service:MainService) { }
 
   ngOnInit(): void {
     
@@ -46,7 +47,7 @@ export class ClassVideosComponent implements OnInit {
         };
    
         this.loader=true
-        this.http.get("http://5.160.146.125/api/classroom/classrooms/"+this.classId,this.httpOptions).subscribe(res=>
+        this.http.get(this.service.path+this.service.classroomPath+this.classId,this.httpOptions).subscribe(res=>
         {
         this.class=res
         this.getComments()
@@ -101,7 +102,7 @@ export class ClassVideosComponent implements OnInit {
     
     
     this.comment["classroom"] = this.classId
-    this.http.post("http://5.160.146.125/api/classroom/comments/",this.comment,this.httpOptions).subscribe(res=>
+    this.http.post(this.service.path+this.service.commentPath,this.comment,this.httpOptions).subscribe(res=>
     {
       console.log("ooooooooooooooomad: "+res);
       this.message="با موفقیت ثبت شد"
