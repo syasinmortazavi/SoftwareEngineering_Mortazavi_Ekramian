@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
 import { Router } from '@angular/router';
@@ -19,18 +19,35 @@ export class TeacherProfileForUserComponent implements OnInit {
   
   //'../../assets/image/download.jpg'
   constructor(private http:HttpClient,private service:MainService,private router:Router) { }
+  compatibility=0
 
   ngOnInit(): void {
+    var headers_object = new HttpHeaders({
+      // 'Content-Type': 'application/json',
+       'Authorization': "Token "+localStorage.getItem("token")
+    });
+
+    var httpOptions = {
+      headers: headers_object
+    };
     this.comments=new Object()
     this.comment=new Object();
     this.comment.msg=""
+    
     this.getTeacher()
     this.teacher=new Object()
     this.AdPosts=new Object()
     this.getTeacherAdPost()
     this.getComments()
+    this.service.http.patch(this.service.path+"classroom/teachers/"+localStorage.getItem("AdPostTeacherId")+"/",{},httpOptions).subscribe
+    (res=>
+      {
+        this.compatibility=(parseInt( res["compatibility"])/5)*100
+      })
     
   }
+
+  
 
   getTeacher()
   {

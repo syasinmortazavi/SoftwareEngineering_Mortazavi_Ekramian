@@ -1,7 +1,7 @@
 <div class="container pb-4"> 
     <h2 class="text-center pt-2">پرسشنامه</h2>
-    <div *ngIf="alert!=null" class="d-flex flex-column justify-content-around align-items-center">
-      <div class="alert alert-success" >{{alert}}</div>
+    <div *ngIf="alert!=null"  class="d-flex flex-row col-12 justify-content-between align-items-center alert alert-success">
+      <div  >{{alert}}</div>
       <div class="btn btn-outline-dark" (click)="alert=null">بستن</div>
     </div>
     <div class="question">
