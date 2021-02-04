@@ -8,6 +8,7 @@ export class MainService {
   public path="http://5.160.146.125/api/"
   public advertisementPath="advertisement/advertisements/"
   public myAdvertisementPath="advertisement/my_advertisements/"
+  public classroomPath="classroom/classrooms/"
   public httpOptions
   constructor(public http:HttpClient) {
     var headers_object = new HttpHeaders({
