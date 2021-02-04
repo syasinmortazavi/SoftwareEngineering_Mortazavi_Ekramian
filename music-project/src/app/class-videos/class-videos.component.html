@@ -25,12 +25,19 @@
       
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let item of tutorials;let i=index" >
+  <tbody *ngIf="tutorials.length!=0">
+    <tr  *ngFor="let item of tutorials;let i=index" >
       <th scope="row">{{i+1}}</th>
       <td (click)="changeVideo(i)">{{item.description}}</td>
       <td><a href="{{item.video}}" download="test">لینک</a></td>
      
+    </tr>
+
+  </tbody>
+  <tbody *ngIf="tutorials.length==0"> 
+    <tr class="col-12">
+      <td class="col-12">هنوز هیچ کدام از جلسات ضبط نشده است</td>
+      
     </tr>
 
   </tbody>
