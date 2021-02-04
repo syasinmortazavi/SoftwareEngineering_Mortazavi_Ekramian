@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CreatedVideoComponent } from '../created-video/created-video.component';
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-all-classes',
@@ -15,20 +16,12 @@ export class AllClassesComponent implements OnInit {
   private santoor = '../../assets/image/unnamed.jpg'
   
   allClasses;
-  constructor(private http:HttpClient,private route:Router) { }
+  constructor(private http:HttpClient,private route:Router,private service:MainService) { }
 
   ngOnInit(): void {
     this.allClasses = new Object()
-    var headers_object = new HttpHeaders({
-      'Content-Type': 'application/json',
-       'Authorization': "Token "+localStorage.getItem("token")
-    });
-    const httpOptions = {
-      headers: headers_object,
-      
-    };
-
-    this.http.get("http://5.160.146.125/api/classroom/classrooms/",httpOptions).subscribe(res=>
+    
+    this.http.get(this.service.path+this.service.classroomPath,this.service.httpOptions).subscribe(res=>
     {
       this.allClasses=res;
     })
