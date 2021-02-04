@@ -7,4 +7,6 @@
     <button (click)="classVideos(item.id)"  class="btn btn-primary">مشاهده کلاس</button>
   </div>
 </div>
+
+<div *ngIf="class.length==0" class="col-12 text-center">هنوز هیچ کلاسی ایجاد نکردید</div>
 </div>
